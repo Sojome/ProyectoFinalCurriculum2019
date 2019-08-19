@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title> Nuevo Datos personales</title>
+</h:head> 
+	<body>
+		<script type="text/javascript">
+		    PrimeFaces.locales['es'] = {
+		        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+		    };
+		</script>
+	
+		<h:form>
+		<p:toolbar>
+			<f:facet name="right">
+				<p:commandButton value="Grabar"
+					actionListener="#{midatospersonaleController.grabar}" update="messagesdo"
+					ajax="false">
+				</p:commandButton>
+				<p:button value="Regresar" outcome="midatospersonale.jsf"/>
+			</f:facet>
+		</p:toolbar>
+		<br />
+		
+		<p:messages errorClass="msg-error">
+		</p:messages>
+		<p:growl id="messagesdo" showDetail="true" sticky="true" />
+		
+		<p:panelGrid columns="2">
+		    <f:facet name="header">
+		    	<p:row>
+		    		<h2><b>Datos Personales</b></h2>
+		    	</p:row>
+		    </f:facet>
+		    <h:outputText value="Id" />
+		    <h:inputHidden value="#{midatospersonaleController.midatospersonale.id}"
+				required="false" requiredMessage="El campo es requerido" />
+		    
+		    <h:outputText value="Primer Nombre" />
+		    <p:inputText value="#{midatospersonaleController.midatospersonale.primerNombre}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Segundo Nombre" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.segundoNombre}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Primer Apellido" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.primerApellido}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Segundo Apellido" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.segundoApellido}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Fecha de nacimiento" />
+			<p:datePicker value="#{midatospersonaleController.midatospersonale.fechaDeNacimiento}"  
+			required="true" requiredMessage="El campo es requerido" locale="es" monthNavigator="true"
+			pattern="dd-MMM-yyyy" showIcon="true"/>
+			
+			<h:outputText value="Cedula" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.cedula}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Pais" />
+			<p:selectOneMenu id="Pais" value="#{midatospersonaleController.varMiPais}" required="true">
+				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+				<f:selectItems value="#{midatospersonaleController.miPaisArray}" itemValue="#{midatospersonaleController.varMiPais}"/>
+				<f:ajax event="change" render="Provincia"/>
+				<f:ajax event="change" render="Nacionalidad"/>
+			</p:selectOneMenu>
+			
+			<h:outputText value="Provincia" />
+			<p:selectOneMenu id="Provincia" value="#{midatospersonaleController.varMiProvincia}" required="true">
+				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+				<f:selectItems value="#{midatospersonaleController.miProvinciaArray}" itemValue="#{midatospersonaleController.varMiProvincia}"/>
+				<f:ajax event="change" render="Canton"/>
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="Canton"/>
+			<p:selectOneMenu id="Canton" value="#{midatospersonaleController.varMiCanton}" required="true">
+				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+				<f:selectItems value="#{midatospersonaleController.miCantonArray}" itemValue="#{midatospersonaleController.varMiCanton}"/>
+				<f:ajax event="change" render="Parroquia"/>
+			</p:selectOneMenu>
+		
+			<p:outputLabel value="Parroquia"/>
+			<p:selectOneMenu id="Parroquia" value="#{midatospersonaleController.varMiParroquia}" required="true">
+				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+				<f:selectItems value="#{midatospersonaleController.miParroquiaArray}" itemValue="#{midatospersonaleController.varMiParroquia}"/>
+			</p:selectOneMenu>
+			
+			<p:outputLabel value="Nacionalidad"/>
+			<p:selectOneMenu id="Nacionalidad" value="#{midatospersonaleController.varMiNacionalidad}" required="true">
+				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+				<f:selectItems value="#{midatospersonaleController.miNacionalidadArray}" itemValue="#{midatospersonaleController.varMiNacionalidad}"/>
+			</p:selectOneMenu>
+			
+		</p:panelGrid>
+		
+		</h:form>
+	</body>
+</html>

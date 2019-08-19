@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"> 
+      
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Contacto</title>
+</h:head> 
+<body>
+	<h:form>
+		<p:growl id="growl" sticky="true" showDetail="true"/>
+		
+		<p:wizard>
+			<p:tab id="listar" title="Listar">
+				<p:panel header="Listar Carpetas">
+					<p:messages />
+					<p:dataTable id="tablaCarpeta" var="a" value="#{carpetaController.listarC}">
+					    <p:column headerText="id">
+					        <h:outputText value="#{a.id}" />
+					    </p:column>
+					 
+					    <p:column headerText="nombre">
+					        <h:outputText value="#{a.nombre}" />
+					    </p:column>
+					    
+					    <p:column headerText="Menu">
+					        	<p:toolbarGroup align="right">
+					        		<p:menuButton value="opciones">
+					        			<p:menuitem value="modifica" action="newCarpeta.jsf" actionListener="#{carpetaController.buscar}" ajax="false">
+					        			<f:attribute name="carpetabuscar" value="#{a.id}"/>
+					        			</p:menuitem>
+					        			<p:menuitem value="eliminar"
+					        				onclick="if (!confirm('esta seguro de eliminar?')) return false"
+					        				actionListener="#{carpetaController.eliminar}"
+					        				update="tablaCarpeta"
+					        				ajax="true">
+					        			<f:attribute name="carpetaeliminar" value="#{a.id}"/>
+					        			</p:menuitem>
+					        		
+					        		</p:menuButton>
+					        	</p:toolbarGroup>
+					    </p:column>
+					    
+					  </p:dataTable>
+				</p:panel>
+				
+				<p:commandButton value="Necesario" actionListener="#{carpetaController.limpiar}" ajax="true"></p:commandButton>
+				
+				
+			</p:tab>
+			
+			<p:tab id="agregar" title="Agregar">
+				<p:messages errorClass="msg-error">
+				</p:messages>
+				<p:growl id="messagesdo" showDetail="true" sticky="true" />
+				<p:panelGrid columns="1" border="1" rules="all">
+					<f:facet name="header">
+						<h:outputText value="Nuevo Registro de Carpetas" />
+					</f:facet>
+		
+					<h:inputHidden value="#{carpetaController.carpeta.id}"
+						required="false" requiredMessage="El campo es requerido" />
+						
+					<p:inputText value="#{carpetaController.carpeta.nombre}"  
+					required="true" requiredMessage="El campo es requerido" />
+					
+					<p:commandButton value="Grabar"
+					actionListener="#{carpetaController.grabar}" update="messagesdo"
+					ajax="false"></p:commandButton>
+					
+				</p:panelGrid>
+				
+			</p:tab>
+			
+		</p:wizard>
+	
+	</h:form>
+</body>
+</html>
