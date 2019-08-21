@@ -7,20 +7,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.ejb.model.Parroquia;
+import com.ejb.model.MiTitulosObtenido;
 
-@Stateless(name="ejbParroquiaDao")
-public class EjbParroquiaDao implements ParroquiaDao {
+@Stateless(name="ejbMiTitulosObtenidoDao")
+public class EjbMiTitulosObtenidoDao implements MiTitulosObtenidoDao {
 	
 	//unir con mi persistencia
 	@PersistenceContext(name="persistencia")
 	private EntityManager em;
 	
 	@Override
-	public Parroquia buscar(Parroquia parroquia) {
-		Parroquia obj = null;
+	public MiTitulosObtenido buscar(MiTitulosObtenido mititulosobtenido) {
+		MiTitulosObtenido obj = null;
 		try {
-			obj = em.find(Parroquia.class, parroquia.getId());
+			obj = em.find(MiTitulosObtenido.class, mititulosobtenido.getIdTitulosObtenidos());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -28,10 +28,10 @@ public class EjbParroquiaDao implements ParroquiaDao {
 	}
 
 	@Override
-	public String grabar(Parroquia parroquia) {
+	public String grabar(MiTitulosObtenido mititulosobtenido) {
 		String msg= "";
 		try {
-			em.persist(parroquia);
+			em.persist(mititulosobtenido);
 			msg="Se grabo correctamente";
 		} catch (Exception e) {
 			//System.out.println("ERROR DAO"+e.getMessage());
@@ -41,10 +41,10 @@ public class EjbParroquiaDao implements ParroquiaDao {
 	}
 
 	@Override
-	public String actualizar(Parroquia p) {
+	public String actualizar(MiTitulosObtenido c) {
 		String msg= "";
 		try {
-			em.merge(p);
+			em.merge(c);
 			msg="Se actualizo correctamente";
 		} catch (Exception e) {
 			//System.out.println("ERROR DAO"+e.getMessage());
@@ -54,10 +54,10 @@ public class EjbParroquiaDao implements ParroquiaDao {
 	}
 
 	@Override
-	public String eliminar(Parroquia p) {
+	public String eliminar(MiTitulosObtenido c) {
 		String msg= "";
 		try {
-			Parroquia buscar = em.find(Parroquia.class, p.getId());
+			MiTitulosObtenido buscar = em.find(MiTitulosObtenido.class, c.getIdTitulosObtenidos());
 			em.remove(buscar);
 			em.flush();//realiza de manera forzada el comando anterior
 			msg="Se elimino correctamente";
@@ -69,10 +69,10 @@ public class EjbParroquiaDao implements ParroquiaDao {
 	}
 
 	@Override
-	public List<Parroquia> listar(int id) {
-		List<Parroquia> lista = null;
+	public List<MiTitulosObtenido> listar(int id) {
+		List<MiTitulosObtenido> lista = null;
 		try {
-			Query q = em.createQuery("Select u from Parroquia u where u.thCanton.id=:id");
+			Query q = em.createQuery("Select u from MiTitulosObtenido u where u.pai.idPais=:id");
 			q.setParameter("id", id);
 			lista = q.getResultList();
 		} catch (Exception e) {
@@ -83,12 +83,11 @@ public class EjbParroquiaDao implements ParroquiaDao {
 	}
 
 	@Override
-	public Parroquia buscarporId(int id) {
+	public MiTitulosObtenido buscarporId(int id) {
 		//int id = 0;
-		Parroquia p = null;
+		MiTitulosObtenido p = null;
 		try {
-			p = (Parroquia)em.createQuery("Select u from Parroquia u"
-					+ "where u.user_id = :id")
+			p = (MiTitulosObtenido)em.createQuery("Select u from MiTitulosObtenido u where u.idMiTitulosObtenido=:id")
 					.setParameter("id", id)
 					.getSingleResult();
 		} catch (Exception e) {

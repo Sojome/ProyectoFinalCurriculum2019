@@ -11,9 +11,33 @@
 <title> Nuevo Datos personales</title>
 </h:head> 
 	<body>
+	
 		<script type="text/javascript">
 		    PrimeFaces.locales['es'] = {
-		        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+		        closeText: 'Cerrar',
+		        prevText: 'Anterior',
+		        nextText: 'Siguiente',
+		        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+		        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+		        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+		        dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+		        weekHeader: 'Semana',
+		        firstDayOfWeek: 1,
+		        isRTL: false,
+		        showMonthAfterYear: false,
+		        yearSuffix: '',
+		        timeOnlyTitle: 'Sólo hora',
+		        timeText: 'Tiempo',
+		        hourText: 'Hora',
+		        minuteText: 'Minuto',
+		        secondText: 'Segundo',
+		        currentText: 'Fecha actual',
+		        ampm: false,
+		        month: 'Mes',
+		        week: 'Semana',
+		        day: 'Día',
+		        allDayText: 'Todo el día'
 		    };
 		</script>
 	
@@ -69,7 +93,7 @@
 			required="true" requiredMessage="El campo es requerido" ></p:inputText>
 			
 			<h:outputText value="Pais" />
-			<p:selectOneMenu id="Pais" value="#{midatospersonaleController.varMiPais}" required="true">
+			<p:selectOneMenu id="Pais" value="#{midatospersonaleController.varMiPais}" required="true" requiredMessage="El campo es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miPaisArray}" itemValue="#{midatospersonaleController.varMiPais}"/>
 				<f:ajax event="change" render="Provincia"/>
@@ -77,27 +101,27 @@
 			</p:selectOneMenu>
 			
 			<h:outputText value="Provincia" />
-			<p:selectOneMenu id="Provincia" value="#{midatospersonaleController.varMiProvincia}" required="true">
+			<p:selectOneMenu id="Provincia" value="#{midatospersonaleController.varMiProvincia}" required="true" requiredMessage="El campo es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miProvinciaArray}" itemValue="#{midatospersonaleController.varMiProvincia}"/>
 				<f:ajax event="change" render="Canton"/>
 			</p:selectOneMenu>
 			
 			<p:outputLabel value="Canton"/>
-			<p:selectOneMenu id="Canton" value="#{midatospersonaleController.varMiCanton}" required="true">
+			<p:selectOneMenu id="Canton" value="#{midatospersonaleController.varMiCanton}" required="true" requiredMessage="El campo es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miCantonArray}" itemValue="#{midatospersonaleController.varMiCanton}"/>
 				<f:ajax event="change" render="Parroquia"/>
 			</p:selectOneMenu>
 		
 			<p:outputLabel value="Parroquia"/>
-			<p:selectOneMenu id="Parroquia" value="#{midatospersonaleController.varMiParroquia}" required="true">
+			<p:selectOneMenu id="Parroquia" value="#{midatospersonaleController.varMiParroquia}" required="true" requiredMessage="El campo es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miParroquiaArray}" itemValue="#{midatospersonaleController.varMiParroquia}"/>
 			</p:selectOneMenu>
 			
 			<p:outputLabel value="Nacionalidad"/>
-			<p:selectOneMenu id="Nacionalidad" value="#{midatospersonaleController.varMiNacionalidad}" required="true">
+			<p:selectOneMenu id="Nacionalidad" value="#{midatospersonaleController.varMiNacionalidad}" required="true" requiredMessage="El campo es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miNacionalidadArray}" itemValue="#{midatospersonaleController.varMiNacionalidad}"/>
 			</p:selectOneMenu>

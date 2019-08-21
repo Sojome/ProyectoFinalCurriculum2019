@@ -76,6 +76,7 @@ public class MiDatosPersonaleController implements Serializable {
 			midatospersonale = new MiDatosPersonale();
 		}
 	}
+	
 	public void limpiar() {
 		midatospersonale = new MiDatosPersonale();
 		estado = 0;

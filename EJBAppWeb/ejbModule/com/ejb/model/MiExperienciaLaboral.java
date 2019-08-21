@@ -20,6 +20,8 @@ public class MiExperienciaLaboral implements Serializable {
 	@Column(name="id_experiencia_laboral")
 	private Integer idExperienciaLaboral;
 
+	private String catedraa;
+
 	@Temporal(TemporalType.DATE)
 	private Date desde;
 
@@ -49,6 +51,14 @@ public class MiExperienciaLaboral implements Serializable {
 
 	public void setIdExperienciaLaboral(Integer idExperienciaLaboral) {
 		this.idExperienciaLaboral = idExperienciaLaboral;
+	}
+
+	public String getCatedraa() {
+		return this.catedraa;
+	}
+
+	public void setCatedraa(String catedraa) {
+		this.catedraa = catedraa;
 	}
 
 	public Date getDesde() {

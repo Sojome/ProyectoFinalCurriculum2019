@@ -10,65 +10,66 @@
 <title>Datos Personales</title>
 </h:head> 
 <body> 
-<p:commandButton value="Nuevo" action="newMDPersonale?faces-redirect=true" actionListener="#{midatospersonaleController.limpiar}" ajax="true"></p:commandButton>
-<h:form id="frmGeneral" enctype="multipart/form-data">
-
-<p:dataTable id="tablaCarpeta" var="a" value="#{midatospersonaleController.listarMDP}">
-    <p:column headerText="id">
-        <h:outputText value="#{a.id}" />
-    </p:column>
- 
-    <p:column headerText="Primer nombre">
-        <h:outputText value="#{a.primerNombre}" />
-    </p:column>
-    
-    <p:column headerText="Segundo nombre">
-        <h:outputText value="#{a.segundoNombre}" />
-    </p:column>
-    
-    <p:column headerText="Primer apellido">
-        <h:outputText value="#{a.primerApellido}" />
-    </p:column>
-    
-    <p:column headerText="Segundo apellido">
-        <h:outputText value="#{a.segundoApellido}" />
-    </p:column>
-    
-    <p:column headerText="Fecha de nacimiento">
-        <h:outputText value="#{a.fechaDeNacimiento}" />
-    </p:column>
-    
-    <p:column headerText="Cedula">
-        <h:outputText value="#{a.cedula}" />
-    </p:column>
-    
-    <p:column headerText="Nacionalidad">
-        <h:outputText value="#{a.nacionalidad.nombre}" />
-    </p:column>
-    
-    
-     <p:column headerText="Menu">
-        	<p:toolbarGroup align="right">
-        		<p:menuButton value="opciones">
-        			<p:menuitem value="modifica" action="newMDPersonale.jsf" actionListener="#{midatospersonaleController.buscar}" ajax="false">
-        			<f:attribute name="midatospersonalebuscar" value="#{a.id}"/>
-        			</p:menuitem>
-        			<p:menuitem value="eliminar"
-        				onclick="if (!confirm('esta seguro de eliminar?')) return false"
-        				actionListener="#{midatospersonaleController.eliminar}"
-        				update="tablaCarpeta"
-        				ajax="true">
-        			<f:attribute name="midatospersonaleeliminar" value="#{a.id}"/>
-        			</p:menuitem>
-        		
-        		</p:menuButton>
-        	</p:toolbarGroup>
-    </p:column>
-    
-</p:dataTable>
-
-
-</h:form>
+	
+	<p:commandButton value="Nuevo" action="newMDPersonale?faces-redirect=true" actionListener="#{midatospersonaleController.limpiar}" ajax="true"></p:commandButton>
+	<h:form id="frmGeneral" enctype="multipart/form-data">
+	
+	<p:dataTable id="tablaCarpeta" var="a" value="#{midatospersonaleController.listarMDP}">
+	    <p:column headerText="id">
+	        <h:outputText value="#{a.id}" />
+	    </p:column>
+	 
+	    <p:column headerText="Primer nombre">
+	        <h:outputText value="#{a.primerNombre}" />
+	    </p:column>
+	    
+	    <p:column headerText="Segundo nombre">
+	        <h:outputText value="#{a.segundoNombre}" />
+	    </p:column>
+	    
+	    <p:column headerText="Primer apellido">
+	        <h:outputText value="#{a.primerApellido}" />
+	    </p:column>
+	    
+	    <p:column headerText="Segundo apellido">
+	        <h:outputText value="#{a.segundoApellido}" />
+	    </p:column>
+	    
+	    <p:column headerText="Fecha de nacimiento">
+	        <h:outputText value="#{a.fechaDeNacimiento}" />
+	    </p:column>
+	    
+	    <p:column headerText="Cedula">
+	        <h:outputText value="#{a.cedula}" />
+	    </p:column>
+	    
+	    <p:column headerText="Nacionalidad">
+	        <h:outputText value="#{a.nacionalidad.nombre}" />
+	    </p:column>
+	    
+	    
+	     <p:column headerText="Menu">
+	        	<p:toolbarGroup align="right">
+	        		<p:menuButton value="opciones">
+	        			<p:menuitem value="modifica" action="newMDPersonale.jsf" actionListener="#{midatospersonaleController.buscar}" ajax="false">
+	        			<f:attribute name="midatospersonalebuscar" value="#{a.id}"/>
+	        			</p:menuitem>
+	        			<p:menuitem value="eliminar"
+	        				onclick="if (!confirm('esta seguro de eliminar?')) return false"
+	        				actionListener="#{midatospersonaleController.eliminar}"
+	        				update="tablaCarpeta"
+	        				ajax="true">
+	        			<f:attribute name="midatospersonaleeliminar" value="#{a.id}"/>
+	        			</p:menuitem>
+	        		
+	        		</p:menuButton>
+	        	</p:toolbarGroup>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	
+	</h:form>
 
 
 </body> 

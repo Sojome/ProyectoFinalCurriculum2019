@@ -43,6 +43,11 @@ public class MiTitulosObtenido implements Serializable {
 	@JoinColumn(name="id_nivel_titulo")
 	private MiNivelTitulo nivelTitulo;
 
+	//bi-directional many-to-one association to MiParroquia
+	@ManyToOne
+	@JoinColumn(name="id_ciudad")
+	private MiParroquia parroquia;
+
 	public MiTitulosObtenido() {
 	}
 
@@ -100,6 +105,14 @@ public class MiTitulosObtenido implements Serializable {
 
 	public void setNivelTitulo(MiNivelTitulo nivelTitulo) {
 		this.nivelTitulo = nivelTitulo;
+	}
+
+	public MiParroquia getParroquia() {
+		return this.parroquia;
+	}
+
+	public void setParroquia(MiParroquia parroquia) {
+		this.parroquia = parroquia;
 	}
 
 }

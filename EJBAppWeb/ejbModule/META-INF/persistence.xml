@@ -4,32 +4,22 @@
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	<jta-data-source>jdbc/__Postgres</jta-data-source>
 		<class>com.ejb.model.Carpeta</class>
-		<class>com.ejb.model.Documentacion</class>
-		<class>com.ejb.model.Estado</class>
-		<class>com.ejb.model.Origenfuente</class>
-		<class>com.ejb.model.Tipodocumento</class>
-		<class>com.ejb.model.Tipotramite</class>
-		<class>com.ejb.model.Unidad</class>
-		<class>com.ejb.model.Canton</class>
-		<class>com.ejb.model.Pais</class>
-		<class>com.ejb.model.Parroquia</class>
-		<class>com.ejb.model.Provincia</class>
 		<class>com.ejb.model.MiCanton</class>
-		<class>com.ejb.model.MiNivelTitulo</class>
-		<class>com.ejb.model.MiPais</class>
-		<class>com.ejb.model.MiProvincia</class>
-		<class>com.ejb.model.MiTipoDeCapacitacion</class>
-		<class>com.ejb.model.MiTipoDeExperiencia</class>
-		<class>com.ejb.model.MiTipoDePublicacione</class>
 		<class>com.ejb.model.MiCapacitacion</class>
 		<class>com.ejb.model.MiDatosPersonale</class>
 		<class>com.ejb.model.MiEstadoCivil</class>
 		<class>com.ejb.model.MiExperienciaLaboral</class>
 		<class>com.ejb.model.MiInvestigacionesRealizada</class>
 		<class>com.ejb.model.MiNacionalidad</class>
+		<class>com.ejb.model.MiNivelTitulo</class>
+		<class>com.ejb.model.MiPais</class>
 		<class>com.ejb.model.MiParroquia</class>
+		<class>com.ejb.model.MiProvincia</class>
 		<class>com.ejb.model.MiPublicacione</class>
 		<class>com.ejb.model.MiReferenciasLaborale</class>
+		<class>com.ejb.model.MiTipoDeCapacitacion</class>
+		<class>com.ejb.model.MiTipoDeExperiencia</class>
+		<class>com.ejb.model.MiTipoDePublicacione</class>
 		<class>com.ejb.model.MiTipoDeSangre</class>
 		<class>com.ejb.model.MiTitulosObtenido</class>
 		
