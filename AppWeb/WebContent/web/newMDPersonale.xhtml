@@ -88,7 +88,7 @@
 			required="true" requiredMessage="El campo es requerido" locale="es" monthNavigator="true"
 			pattern="dd-MMM-yyyy" showIcon="true"/>
 			
-			<h:outputText value="Cedula" />
+			<h:outputText value="Cedula de ciudadanía" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.cedula}"  
 			required="true" requiredMessage="El campo es requerido" ></p:inputText>
 			
@@ -114,7 +114,7 @@
 				<f:ajax event="change" render="Parroquia"/>
 			</p:selectOneMenu>
 		
-			<p:outputLabel value="Parroquia"/>
+			<p:outputLabel value="Lugar de nacimiento"/>
 			<p:selectOneMenu id="Parroquia" value="#{midatospersonaleController.varMiParroquia}" required="true" requiredMessage="El campo es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miParroquiaArray}" itemValue="#{midatospersonaleController.varMiParroquia}"/>
@@ -125,6 +125,34 @@
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miNacionalidadArray}" itemValue="#{midatospersonaleController.varMiNacionalidad}"/>
 			</p:selectOneMenu>
+			
+			<h:outputText value="Estado Civil" />
+			<p:selectOneMenu id="EstadoCivil" value="#{midatospersonaleController.varMiEstadoCivil}" required="true" requiredMessage="El campo es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+				<f:selectItems value="#{midatospersonaleController.miEstadoCivilArray}" itemValue="#{midatospersonaleController.varMiEstadoCivil}"/>
+			</p:selectOneMenu>
+			
+			<h:outputText value="Tipo de Sangre" />
+			<p:selectOneMenu id="TipoDeSangre" value="#{midatospersonaleController.varMiTipoDeSangre}" required="true" requiredMessage="El campo es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+				<f:selectItems value="#{midatospersonaleController.miTipoDeSangreArray}" itemValue="#{midatospersonaleController.varMiTipoDeSangre}"/>
+			</p:selectOneMenu>
+			
+			<h:outputText value="Direccion" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.direccion}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Telefono celular" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.telefonoCelular}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Telefono convencional" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.telefonoConvencional}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			
+			<h:outputText value="Correo Electronico" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.correoElectronico}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
 			
 		</p:panelGrid>
 		

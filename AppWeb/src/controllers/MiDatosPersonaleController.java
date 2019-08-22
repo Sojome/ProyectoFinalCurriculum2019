@@ -16,8 +16,6 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-//import com.ejb.model.Carpeta;
-//import com.ejb.session.CarpetaSession;
 import com.ejb.model.*;
 import com.ejb.session.*;
 import com.oracle.wls.shaded.org.apache.bcel.generic.Select;
@@ -43,6 +41,10 @@ public class MiDatosPersonaleController implements Serializable {
 	private MiParroquiaSession ejbMiParroquiaSession;
 	@EJB
 	private MiNacionalidadSession ejbMiNacionalidadSession;
+	@EJB
+	private MiEstadoCivilSession ejbMiEstadoCivilSession;
+	@EJB
+	private MiTipoDeSangreSession ejbMiTipoDeSangreSession;
 	
 	//crear un objeto listar
 	public MiDatosPersonale midatospersonale;
@@ -59,6 +61,8 @@ public class MiDatosPersonaleController implements Serializable {
 	public int varMiProvincia=0;
 	public int varMiParroquia=0;
 	public int varMiNacionalidad=0;
+	public int varMiEstadoCivil=0;
+	public int varMiTipoDeSangre=0;
 	
 	DataModel<MiDatosPersonale> listarMDP;
 	
@@ -67,6 +71,8 @@ public class MiDatosPersonaleController implements Serializable {
 	private ArrayList<SelectItem> MiParroquiaArray;
 	private ArrayList<SelectItem> MiProvinciaArray;
 	private ArrayList<SelectItem> MiNacionalidadArray;
+	private ArrayList<SelectItem> MiEstadoCivilArray;
+	private ArrayList<SelectItem> MiTipoDeSangreArray;
 	
 	//PARA EL CRUD
 
@@ -218,6 +224,22 @@ public class MiDatosPersonaleController implements Serializable {
 	public void setVarMiNacionalidad(int varMiNacionalidad) {
 		this.varMiNacionalidad = varMiNacionalidad;
 	}
+	public int getVarMiEstadoCivil() {
+		return varMiEstadoCivil;
+	}
+
+	public void setVarMiEstadoCivil(int varMiEstadoCivil) {
+		this.varMiEstadoCivil = varMiEstadoCivil;
+	}
+
+	public int getVarMiTipoDeSangre() {
+		return varMiTipoDeSangre;
+	}
+
+	public void setVarMiTipoDeSangre(int varMiTipoDeSangre) {
+		this.varMiTipoDeSangre = varMiTipoDeSangre;
+	}
+
 	public DataModel<MiDatosPersonale> getListarMDP() {
 		listarMDP = new ListDataModel<MiDatosPersonale>(ejbMiDatosPersonaleSession.listar());
 		return listarMDP;
@@ -284,5 +306,32 @@ public class MiDatosPersonaleController implements Serializable {
 	}
 	public void setMiNacionalidadArray(ArrayList<SelectItem> miNacionalidadArray) {
 		MiNacionalidadArray = miNacionalidadArray;
-	}	
+	}
+	//---------------------------ESTADO CIVIL-------------------------------
+	public ArrayList<SelectItem> getMiEstadoCivilArray() {
+		MiEstadoCivilArray = new ArrayList<SelectItem>();
+		for(MiEstadoCivil obj: ejbMiEstadoCivilSession.listar())
+		{
+			MiEstadoCivilArray.add(new SelectItem(obj.getIdEstadoCivil().toString(), obj.getNombre()));
+		}
+		return MiEstadoCivilArray;
+	}
+
+	public void setMiEstadoCivilArray(ArrayList<SelectItem> miEstadoCivilArray) {
+		MiEstadoCivilArray = miEstadoCivilArray;
+	}
+	//---------------------------TIPO DE SANGRE-------------------------------
+	public ArrayList<SelectItem> getMiTipoDeSangreArray() {
+		MiTipoDeSangreArray = new ArrayList<SelectItem>();
+		for(MiTipoDeSangre obj: ejbMiTipoDeSangreSession.listar())
+		{
+			MiTipoDeSangreArray.add(new SelectItem(obj.getIdTipoDeSangre().toString(), obj.getNombre()));
+		}
+		return MiTipoDeSangreArray;
+	}
+
+	public void setMiTipoDeSangreArray(ArrayList<SelectItem> miTipoDeSangreArray) {
+		MiTipoDeSangreArray = miTipoDeSangreArray;
+	}
+	
 }
