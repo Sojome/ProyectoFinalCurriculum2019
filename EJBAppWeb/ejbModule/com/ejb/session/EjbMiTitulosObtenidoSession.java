@@ -26,18 +26,18 @@ public class EjbMiTitulosObtenidoSession implements MiTitulosObtenidoSession {
 	}
 
 	@Override
-	public String actualizar(MiTitulosObtenido c) {
-		return EjbMiTitulosObtenidoDao.actualizar(c);
+	public String actualizar(MiTitulosObtenido p) {
+		return EjbMiTitulosObtenidoDao.actualizar(p);
 	}
 
 	@Override
-	public String eliminar(MiTitulosObtenido c) {
-		return EjbMiTitulosObtenidoDao.eliminar(c);
+	public String eliminar(MiTitulosObtenido p) {
+		return EjbMiTitulosObtenidoDao.eliminar(p);
 	}
 
 	@Override
-	public List<MiTitulosObtenido> listar(int id) {
-		return EjbMiTitulosObtenidoDao.listar(id);
+	public List<MiTitulosObtenido> listar() {
+		return EjbMiTitulosObtenidoDao.listar();
 	}
 
 	@Override

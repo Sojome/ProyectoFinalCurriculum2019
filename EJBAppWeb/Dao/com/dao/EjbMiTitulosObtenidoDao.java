@@ -69,11 +69,10 @@ public class EjbMiTitulosObtenidoDao implements MiTitulosObtenidoDao {
 	}
 
 	@Override
-	public List<MiTitulosObtenido> listar(int id) {
+	public List<MiTitulosObtenido> listar() {
 		List<MiTitulosObtenido> lista = null;
 		try {
-			Query q = em.createQuery("Select u from MiTitulosObtenido u where u.pai.idPais=:id");
-			q.setParameter("id", id);
+			Query q = em.createQuery("Select u from MiTitulosObtenido u");
 			lista = q.getResultList();
 		} catch (Exception e) {
 			System.out.println("error ejbdao listar");
@@ -87,7 +86,7 @@ public class EjbMiTitulosObtenidoDao implements MiTitulosObtenidoDao {
 		//int id = 0;
 		MiTitulosObtenido p = null;
 		try {
-			p = (MiTitulosObtenido)em.createQuery("Select u from MiTitulosObtenido u where u.idMiTitulosObtenido=:id")
+			p = (MiTitulosObtenido)em.createQuery("Select u from MiTitulosObtenido u where u.id=:id")
 					.setParameter("id", id)
 					.getSingleResult();
 		} catch (Exception e) {

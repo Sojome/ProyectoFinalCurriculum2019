@@ -121,15 +121,19 @@ public class MiDatosPersonaleController implements Serializable {
 			midatospersonale.getSegundoNombre();
 			midatospersonale.getPrimerApellido();
 			midatospersonale.getSegundoApellido();
-			midatospersonale.getFechaDeNacimiento();
 			midatospersonale.getCedula();
+			midatospersonale.getFechaDeNacimiento();			
 			midatospersonale.getNacionalidad().getNombre();
 			midatospersonale.getEstadoCivil().getNombre();
 			midatospersonale.getTipoDeSangre().getNombre();
 			midatospersonale.getParroquia().getNombre();
+			midatospersonale.getDireccion();
 			midatospersonale.getTelefonoCelular();
 			midatospersonale.getTelefonoConvencional();
 			midatospersonale.getCorreoElectronico();
+			midatospersonale.getUsuario();
+			midatospersonale.getContrasena();
+			midatospersonale.getSesion();
 			setEstado(1);
 		}
 	}

@@ -20,6 +20,8 @@ public class MiTitulosObtenido implements Serializable {
 	@Column(name="id_titulos_obtenidos")
 	private Integer idTitulosObtenidos;
 
+	private String ciudad;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_de_grado")
 	private Date fechaDeGrado;
@@ -27,11 +29,6 @@ public class MiTitulosObtenido implements Serializable {
 	private String titulo;
 
 	private String universidad;
-
-	//bi-directional many-to-one association to MiCanton
-	@ManyToOne
-	@JoinColumn(name="id_ciudad")
-	private MiCanton canton;
 
 	//bi-directional many-to-one association to MiDatosPersonale
 	@ManyToOne
@@ -43,11 +40,6 @@ public class MiTitulosObtenido implements Serializable {
 	@JoinColumn(name="id_nivel_titulo")
 	private MiNivelTitulo nivelTitulo;
 
-	//bi-directional many-to-one association to MiParroquia
-	@ManyToOne
-	@JoinColumn(name="id_ciudad")
-	private MiParroquia parroquia;
-
 	public MiTitulosObtenido() {
 	}
 
@@ -57,6 +49,14 @@ public class MiTitulosObtenido implements Serializable {
 
 	public void setIdTitulosObtenidos(Integer idTitulosObtenidos) {
 		this.idTitulosObtenidos = idTitulosObtenidos;
+	}
+
+	public String getCiudad() {
+		return this.ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
 	}
 
 	public Date getFechaDeGrado() {
@@ -83,14 +83,6 @@ public class MiTitulosObtenido implements Serializable {
 		this.universidad = universidad;
 	}
 
-	public MiCanton getCanton() {
-		return this.canton;
-	}
-
-	public void setCanton(MiCanton canton) {
-		this.canton = canton;
-	}
-
 	public MiDatosPersonale getDatosPersonale() {
 		return this.datosPersonale;
 	}
@@ -105,14 +97,6 @@ public class MiTitulosObtenido implements Serializable {
 
 	public void setNivelTitulo(MiNivelTitulo nivelTitulo) {
 		this.nivelTitulo = nivelTitulo;
-	}
-
-	public MiParroquia getParroquia() {
-		return this.parroquia;
-	}
-
-	public void setParroquia(MiParroquia parroquia) {
-		this.parroquia = parroquia;
 	}
 
 }

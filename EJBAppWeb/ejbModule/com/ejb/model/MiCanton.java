@@ -31,10 +31,6 @@ public class MiCanton implements Serializable {
 	@OneToMany(mappedBy="canton")
 	private List<MiParroquia> parroquias;
 
-	//bi-directional many-to-one association to MiTitulosObtenido
-	@OneToMany(mappedBy="canton")
-	private List<MiTitulosObtenido> titulosObtenidos;
-
 	public MiCanton() {
 	}
 
@@ -82,28 +78,6 @@ public class MiCanton implements Serializable {
 		parroquia.setCanton(null);
 
 		return parroquia;
-	}
-
-	public List<MiTitulosObtenido> getTitulosObtenidos() {
-		return this.titulosObtenidos;
-	}
-
-	public void setTitulosObtenidos(List<MiTitulosObtenido> titulosObtenidos) {
-		this.titulosObtenidos = titulosObtenidos;
-	}
-
-	public MiTitulosObtenido addTitulosObtenido(MiTitulosObtenido titulosObtenido) {
-		getTitulosObtenidos().add(titulosObtenido);
-		titulosObtenido.setCanton(this);
-
-		return titulosObtenido;
-	}
-
-	public MiTitulosObtenido removeTitulosObtenido(MiTitulosObtenido titulosObtenido) {
-		getTitulosObtenidos().remove(titulosObtenido);
-		titulosObtenido.setCanton(null);
-
-		return titulosObtenido;
 	}
 
 }
