@@ -33,6 +33,8 @@ public class MiDatosPersonale implements Serializable {
 	@Column(name="fecha_de_nacimiento")
 	private Date fechaDeNacimiento;
 
+	private String nacionalidad;
+
 	@Column(name="primer_apellido")
 	private String primerApellido;
 
@@ -63,11 +65,6 @@ public class MiDatosPersonale implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_estado_civil")
 	private MiEstadoCivil estadoCivil;
-
-	//bi-directional many-to-one association to MiNacionalidad
-	@ManyToOne
-	@JoinColumn(name="id_nacionalidad")
-	private MiNacionalidad nacionalidad;
 
 	//bi-directional many-to-one association to MiParroquia
 	@ManyToOne
@@ -148,6 +145,14 @@ public class MiDatosPersonale implements Serializable {
 
 	public void setFechaDeNacimiento(Date fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
+	}
+
+	public String getNacionalidad() {
+		return this.nacionalidad;
+	}
+
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
 	}
 
 	public String getPrimerApellido() {
@@ -242,14 +247,6 @@ public class MiDatosPersonale implements Serializable {
 
 	public void setEstadoCivil(MiEstadoCivil estadoCivil) {
 		this.estadoCivil = estadoCivil;
-	}
-
-	public MiNacionalidad getNacionalidad() {
-		return this.nacionalidad;
-	}
-
-	public void setNacionalidad(MiNacionalidad nacionalidad) {
-		this.nacionalidad = nacionalidad;
 	}
 
 	public MiParroquia getParroquia() {

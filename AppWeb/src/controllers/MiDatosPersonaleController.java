@@ -40,8 +40,6 @@ public class MiDatosPersonaleController implements Serializable {
 	@EJB
 	private MiParroquiaSession ejbMiParroquiaSession;
 	@EJB
-	private MiNacionalidadSession ejbMiNacionalidadSession;
-	@EJB
 	private MiEstadoCivilSession ejbMiEstadoCivilSession;
 	@EJB
 	private MiTipoDeSangreSession ejbMiTipoDeSangreSession;
@@ -60,7 +58,6 @@ public class MiDatosPersonaleController implements Serializable {
 	public int varMiCanton=0;
 	public int varMiProvincia=0;
 	public int varMiParroquia=0;
-	public int varMiNacionalidad=0;
 	public int varMiEstadoCivil=0;
 	public int varMiTipoDeSangre=0;
 	
@@ -70,7 +67,6 @@ public class MiDatosPersonaleController implements Serializable {
 	private ArrayList<SelectItem> MiPaisArray;
 	private ArrayList<SelectItem> MiParroquiaArray;
 	private ArrayList<SelectItem> MiProvinciaArray;
-	private ArrayList<SelectItem> MiNacionalidadArray;
 	private ArrayList<SelectItem> MiEstadoCivilArray;
 	private ArrayList<SelectItem> MiTipoDeSangreArray;
 	
@@ -123,7 +119,7 @@ public class MiDatosPersonaleController implements Serializable {
 			midatospersonale.getSegundoApellido();
 			midatospersonale.getCedula();
 			midatospersonale.getFechaDeNacimiento();			
-			midatospersonale.getNacionalidad().getNombre();
+			midatospersonale.getNacionalidad();
 			midatospersonale.getEstadoCivil().getNombre();
 			midatospersonale.getTipoDeSangre().getNombre();
 			midatospersonale.getParroquia().getNombre();
@@ -222,12 +218,6 @@ public class MiDatosPersonaleController implements Serializable {
 	public void setVarMiParroquia(int varMiParroquia) {
 		this.varMiParroquia = varMiParroquia;
 	}
-	public int getVarMiNacionalidad() {
-		return varMiNacionalidad;
-	}
-	public void setVarMiNacionalidad(int varMiNacionalidad) {
-		this.varMiNacionalidad = varMiNacionalidad;
-	}
 	public int getVarMiEstadoCivil() {
 		return varMiEstadoCivil;
 	}
@@ -298,18 +288,6 @@ public class MiDatosPersonaleController implements Serializable {
 	}
 	public void setMiProvinciaArray(ArrayList<SelectItem> miProvinciaArray) {
 		MiProvinciaArray = miProvinciaArray;
-	}
-	//---------------------------NACIONALIDAD-------------------------------
-	public ArrayList<SelectItem> getMiNacionalidadArray() {
-		MiNacionalidadArray = new ArrayList<SelectItem>();
-		for(MiNacionalidad obj: ejbMiNacionalidadSession.listar(getVarMiPais()))
-		{
-			MiNacionalidadArray.add(new SelectItem(obj.getIdNacionalidad().toString(), obj.getNombre()));
-		}
-		return MiNacionalidadArray;
-	}
-	public void setMiNacionalidadArray(ArrayList<SelectItem> miNacionalidadArray) {
-		MiNacionalidadArray = miNacionalidadArray;
 	}
 	//---------------------------ESTADO CIVIL-------------------------------
 	public ArrayList<SelectItem> getMiEstadoCivilArray() {

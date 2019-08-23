@@ -22,10 +22,6 @@ public class MiPais implements Serializable {
 
 	private String nombre;
 
-	//bi-directional many-to-one association to MiNacionalidad
-	@OneToMany(mappedBy="pai")
-	private List<MiNacionalidad> nacionalidads;
-
 	//bi-directional many-to-one association to MiProvincia
 	@OneToMany(mappedBy="pai")
 	private List<MiProvincia> provincias;
@@ -47,28 +43,6 @@ public class MiPais implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public List<MiNacionalidad> getNacionalidads() {
-		return this.nacionalidads;
-	}
-
-	public void setNacionalidads(List<MiNacionalidad> nacionalidads) {
-		this.nacionalidads = nacionalidads;
-	}
-
-	public MiNacionalidad addNacionalidad(MiNacionalidad nacionalidad) {
-		getNacionalidads().add(nacionalidad);
-		nacionalidad.setPai(this);
-
-		return nacionalidad;
-	}
-
-	public MiNacionalidad removeNacionalidad(MiNacionalidad nacionalidad) {
-		getNacionalidads().remove(nacionalidad);
-		nacionalidad.setPai(null);
-
-		return nacionalidad;
 	}
 
 	public List<MiProvincia> getProvincias() {

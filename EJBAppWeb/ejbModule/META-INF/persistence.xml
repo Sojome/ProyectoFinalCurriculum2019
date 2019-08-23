@@ -9,7 +9,6 @@
 	<class>com.ejb.model.MiEstadoCivil</class>
 	<class>com.ejb.model.MiExperienciaLaboral</class>
 	<class>com.ejb.model.MiInvestigacionesRealizada</class>
-	<class>com.ejb.model.MiNacionalidad</class>
 	<class>com.ejb.model.MiNivelTitulo</class>
 	<class>com.ejb.model.MiPais</class>
 	<class>com.ejb.model.MiParroquia</class>

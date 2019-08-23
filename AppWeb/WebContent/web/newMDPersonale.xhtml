@@ -97,7 +97,6 @@
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miPaisArray}" itemValue="#{midatospersonaleController.varMiPais}"/>
 				<f:ajax event="change" render="Provincia"/>
-				<f:ajax event="change" render="Nacionalidad"/>
 			</p:selectOneMenu>
 			
 			<h:outputText value="Provincia" />
@@ -120,12 +119,6 @@
 				<f:selectItems value="#{midatospersonaleController.miParroquiaArray}" itemValue="#{midatospersonaleController.varMiParroquia}"/>
 			</p:selectOneMenu>
 			
-			<p:outputLabel value="Nacionalidad"/>
-			<p:selectOneMenu id="Nacionalidad" value="#{midatospersonaleController.varMiNacionalidad}" required="true" requiredMessage="El campo es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
-				<f:selectItems value="#{midatospersonaleController.miNacionalidadArray}" itemValue="#{midatospersonaleController.varMiNacionalidad}"/>
-			</p:selectOneMenu>
-			
 			<h:outputText value="Estado Civil" />
 			<p:selectOneMenu id="EstadoCivil" value="#{midatospersonaleController.varMiEstadoCivil}" required="true" requiredMessage="El campo es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
@@ -137,6 +130,10 @@
 				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
 				<f:selectItems value="#{midatospersonaleController.miTipoDeSangreArray}" itemValue="#{midatospersonaleController.varMiTipoDeSangre}"/>
 			</p:selectOneMenu>
+			
+			<h:outputText value="Nacionalidad" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.nacionalidad}"  
+			required="true" requiredMessage="El campo es requerido" ></p:inputText>
 			
 			<h:outputText value="Direccion" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.direccion}"  
