@@ -8,7 +8,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title> Nueva Capacitacion</title>
+<title> Nuevo Titulo Obtenido</title>
 </h:head> 
 	<body>
 	
@@ -45,10 +45,10 @@
 		<p:toolbar>
 			<f:facet name="right">
 				<p:commandButton value="Grabar"
-					actionListener="#{micapacitacionController.grabar}" update="messagesdo"
+					actionListener="#{mititulosobtenidoController.grabar}" update="messagesdo"
 					ajax="false">
 				</p:commandButton>
-				<p:button value="Regresar" outcome="micapacitacion.jsf"/>
+				<p:button value="Regresar" outcome="mititulosobtenido.jsf"/>
 			</f:facet>
 		</p:toolbar>
 		<br />
@@ -60,43 +60,38 @@
 		<p:panelGrid columns="2">
 		    <f:facet name="header">
 		    	<p:row>
-		    		<h2><b>Capacitacion</b></h2>
+		    		<h2><b>TitulosObtenido</b></h2>
 		    	</p:row>
 		    </f:facet>
 		    
-		    <h:outputText value="Tipo de evento" />
-		    <p:inputText value="#{micapacitacionController.micapacitacion.tipoDeEvento}"  
-			required="true" requiredMessage="El campo Tipo de evento es requerido" ></p:inputText>
+		    <h:outputText value="Nivel titulo" />
+		    <p:inputText value="#{mititulosobtenidoController.mititulosobtenido.nivelTituloTexto}"  
+			required="true" requiredMessage="El campo Nivel titulo es requerido" ></p:inputText>
 			
-			<h:outputText value="Institucion" />
-			<p:inputText value="#{micapacitacionController.micapacitacion.institucion}"  
+			<h:outputText value="Titulo" />
+			<p:inputText value="#{mititulosobtenidoController.mititulosobtenido.titulo}"  
 			required="true" requiredMessage="El campo Institucion es requerido" ></p:inputText>
 			
-			<h:outputText value="Numero de horas" />
-			<p:inputText value="#{micapacitacionController.micapacitacion.numeroDeHoras}"  
-			required="true" requiredMessage="El campo Numero de horas es requerido" ><p:keyFilter regEx="/[\d\-]/"/></p:inputText>
+			<h:outputText value="Universidad" />
+			<p:inputText value="#{mititulosobtenidoController.mititulosobtenido.universidad}"  
+			required="true" requiredMessage="El campo Numero de horas es requerido" ></p:inputText>
 			
-			<h:outputText value="Tipo de Capacitacion" />
-			<p:inputText value="#{micapacitacionController.micapacitacion.tipoDeCapacitacionTexto}"  
+			<h:outputText value="Ciudad" />
+			<p:inputText value="#{mititulosobtenidoController.mititulosobtenido.ciudad}"  
 			required="true" requiredMessage="El campo Institucion es requerido" ></p:inputText>
 			
-			<h:outputLabel value="Fecha Inicial" for="finicial"/>
-			<p:calendar id="finicial" value="#{micapacitacionController.micapacitacion.fechaInicial}" pattern="dd/MM/yyyy"   locale="es" required="true" onkeypress="return permite(event, 'none')" requiredMessage="Fecha Inicial Requerida" navigator="true" effect="fadeIn" effectDuration="100" showOn="button">
-			        <p:ajax event="dateSelect" update="ffinal" />
-			 </p:calendar>    
-			<h:outputLabel value="Fecha Final" for="ffinal"/>
-			<p:calendar id="ffinal" value="#{micapacitacionController.micapacitacion.fechaFinal}" mindate="#{micapacitacionController.micapacitacion.fechaInicial}" pattern="dd/MM/yyyy"  locale="es" required="true" onkeypress="return permite(event, 'none')" requiredMessage="Fecha Final Requerida" navigator="true" effect="fadeIn" effectDuration="100" showOn="button">
-			         <f:attribute name="finicial" value="#{nacidoVivoRenaviController.FInicial}"/>
-			         <f:validator validatorId="primeDateRangeValidator" />
-			</p:calendar>
+			<h:outputLabel value="Fecha de grado" for="button"/>
+			<p:calendar id="button" value="#{mititulosobtenidoController.mititulosobtenido.fechaDeGrado}" pattern="dd/MM/yyyy" 
+			locale="es" required="true" requiredMessage="Fecha de grado" showOn="button"
+			 navigator="true" effect="fadeIn" effectDuration="100">
+			 </p:calendar>  
 			
 		</p:panelGrid>
-		<!-- <h:outputText value="Tipo de Capacitacion" />
-			<p:selectOneMenu id="TipoDeCapacitacion" value="#{micapacitacionController.micapacitacion.tipoDeCapacitacion.idTipoDeCapacitacion}" required="true" requiredMessage="El campo Tipo de capacitacion es requerido">
+		<!-- <h:outputText value="Nivel titulo" />
+			<p:selectOneMenu id="NivelTitulo" value="#{mititulosobtenidoController.mititulosobtenido.nivelTitulo.idNivelTitulo}" required="true" requiredMessage="El campo nivel de titulo es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
-				<f:selectItems value="#{micapacitacionController.miTipoDeCapacitacionArray}" itemValue="#{micapacitacionController.varMiTipoDeCapacitacion}"/>
+				<f:selectItems value="#{mititulosobtenidoController.miNivelTituloArray}" itemValue="#{mititulosobtenidoController.varMiNivelTitulo}"/>
 			</p:selectOneMenu> -->
-		
 		</h:form>
 	</body>
 </html>

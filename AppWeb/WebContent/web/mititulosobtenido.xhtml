@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Titulos Obtenidos</title>
+</h:head> 
+<body> 
+	
+	<p:commandButton value="Nuevo" action="newmititulosobtenido?faces-redirect=true" actionListener="#{mititulosobtenidoController.limpiar}" ajax="true"></p:commandButton>
+	<h:form id="frmGeneral" enctype="multipart/form-data">
+	
+	<p:dataTable id="tablaCarpeta" var="a" value="#{mititulosobtenidoController.listarMDP}" scrollable="true" scrollHeight="150">
+	    
+	    <p:column headerText="id" width="150">
+	        <center><h:outputText value="#{a.idTitulosObtenidos}"/></center>
+	    </p:column>
+	 
+	    <p:column headerText="Nivel titulo" width="150">
+	        <center><h:outputText value="#{a.nivelTituloTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.nivelTitulo.idNivelTitulo}"/></center> -->
+	    </p:column>
+	    
+	    <p:column headerText="Titulo" width="150">
+	        <center><h:outputText value="#{a.titulo}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Universidad" width="150">
+	        <center><h:outputText value="#{a.universidad}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Ciudad" width="150">
+	        <center><h:outputText value="#{a.ciudad}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Fecha de grado" width="150">
+	        <center><h:outputText value="#{a.fechaDeGrado}"/></center>
+	    </p:column>
+	    
+	     <p:column headerText="Menu" width="150">
+	        	<p:toolbarGroup align="right">
+	        		<p:menuButton value="opciones">
+	        			<p:menuitem value="modifica" action="newmititulosobtenido.jsf" actionListener="#{mititulosobtenidoController.buscar}" ajax="false">
+	        			<f:attribute name="mititulosobtenidobuscar" value="#{a.idTitulosObtenidos}"/>
+	        			</p:menuitem>
+	        			<p:menuitem value="eliminar"
+	        				onclick="if (!confirm('esta seguro de eliminar?')) return false"
+	        				actionListener="#{mititulosobtenidoController.eliminar}"
+	        				update="tablaCarpeta"
+	        				ajax="true">
+	        			<f:attribute name="mititulosobtenidoeliminar" value="#{a.idTitulosObtenidos}"/>
+	        			</p:menuitem>
+	        		
+	        		</p:menuButton>
+	        	</p:toolbarGroup>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	
+	</h:form>
+
+
+</body> 
+</html>
