@@ -57,102 +57,112 @@
 		</p:messages>
 		<p:growl id="messagesdo" showDetail="true" sticky="true" />
 		
-		<p:panelGrid columns="2">
+		<p:panelGrid columns="4">
 		    <f:facet name="header">
 		    	<p:row>
 		    		<h2><b>Datos Personales</b></h2>
 		    	</p:row>
 		    </f:facet>
-		    <h:outputText value="Id" />
-		    <h:inputHidden value="#{midatospersonaleController.midatospersonale.id}"
-				required="false" requiredMessage="El campo es requerido" />
 		    
 		    <h:outputText value="Primer Nombre" />
 		    <p:inputText value="#{midatospersonaleController.midatospersonale.primerNombre}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			required="true" requiredMessage="El campo Primer Nombre es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
 			
 			<h:outputText value="Segundo Nombre" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.segundoNombre}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			required="true" requiredMessage="El campo Segundo Nombre es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
 			
 			<h:outputText value="Primer Apellido" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.primerApellido}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			required="true" requiredMessage="El campo Primer Apellido es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
 			
 			<h:outputText value="Segundo Apellido" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.segundoApellido}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			required="true" requiredMessage="El campo Segundo Apellido es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
 			
-			<h:outputText value="Fecha de nacimiento" />
-			<p:datePicker value="#{midatospersonaleController.midatospersonale.fechaDeNacimiento}"  
-			required="true" requiredMessage="El campo es requerido" locale="es" monthNavigator="true"
-			pattern="dd-MMM-yyyy" showIcon="true"/>
+			<h:outputLabel value="Fecha de nacimiento" for="finicial"/>
+			<p:calendar id="finicial" value="#{midatospersonaleController.midatospersonale.fechaDeNacimiento}" pattern="dd/MM/yyyy"   locale="es" required="true" 
+			 onkeypress="return permite(event, 'none')" requiredMessage="Fecha de nacimiento" 
+			 navigator="true" effect="fadeIn" effectDuration="100">
+			 </p:calendar>  
 			
 			<h:outputText value="Cedula de ciudadanía" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.cedula}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
+			required="true" requiredMessage="El campo Ciudadanía es requerido" ><p:keyFilter regEx="/[\d\-]/"/></p:inputText>
 			
+			<p:outputLabel value="Lugar de nacimiento"/>
+			<p:inputText value="#{midatospersonaleController.midatospersonale.lugarDeNacimientoTexto}"  
+			required="true" requiredMessage="El campo Lugar de nacimiento es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
+			
+			<h:outputText value="Estado Civil" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.estadoCivilTexto}"  
+			required="true" requiredMessage="El campo Estado Civil es requerido" ><p:keyFilter regEx="	/[a-z_]/i"/></p:inputText>
+			
+			<h:outputText value="Tipo de Sangre" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.tipoDeSangreTexto}"  
+			required="true" requiredMessage="El campo Tipo de sangre es requerido" ><p:keyFilter regEx="	/[a-z_]/i"/></p:inputText>
+						
+			<h:outputText value="Nacionalidad" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.nacionalidad}"  
+			required="true" requiredMessage="El campo Nacionalidad es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
+			
+			<h:outputText value="Direccion" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.direccion}"  
+			required="true" requiredMessage="El campo Direccion es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
+			
+			<h:outputText value="Telefono celular" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.telefonoCelular}"  
+			required="true" requiredMessage="El campo Telefono celular es requerido" ><p:keyFilter regEx="/[\d\-]/"/></p:inputText>
+			
+			<h:outputText value="Telefono convencional" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.telefonoConvencional}"  
+			required="true" requiredMessage="El campo Telefono convencional es requerido" ><p:keyFilter regEx="/[\d\-]/"/></p:inputText>
+			
+			<h:outputText value="Correo Electronico" />
+			<p:inputText value="#{midatospersonaleController.midatospersonale.correoElectronico}"  
+			required="true" requiredMessage="El campo Correo Electronico es requerido" ><p:keyFilter regEx="/[a-z0-9_\.\-@]/i"/></p:inputText>
+			
+		</p:panelGrid>
+			<!--
 			<h:outputText value="Pais" />
-			<p:selectOneMenu id="Pais" value="#{midatospersonaleController.varMiPais}" required="true" requiredMessage="El campo es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+			<p:selectOneMenu id="Pais" value="#{midatospersonaleController.varMiPais}" required="true" requiredMessage="El campo Pais es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
 				<f:selectItems value="#{midatospersonaleController.miPaisArray}" itemValue="#{midatospersonaleController.varMiPais}"/>
 				<f:ajax event="change" render="Provincia"/>
 			</p:selectOneMenu>
 			
 			<h:outputText value="Provincia" />
-			<p:selectOneMenu id="Provincia" value="#{midatospersonaleController.varMiProvincia}" required="true" requiredMessage="El campo es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+			<p:selectOneMenu id="Provincia" value="#{midatospersonaleController.varMiProvincia}" required="true" requiredMessage="El campo Provincia es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
 				<f:selectItems value="#{midatospersonaleController.miProvinciaArray}" itemValue="#{midatospersonaleController.varMiProvincia}"/>
 				<f:ajax event="change" render="Canton"/>
 			</p:selectOneMenu>
 			
 			<p:outputLabel value="Canton"/>
-			<p:selectOneMenu id="Canton" value="#{midatospersonaleController.varMiCanton}" required="true" requiredMessage="El campo es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+			<p:selectOneMenu id="Canton" value="#{midatospersonaleController.varMiCanton}" required="true" requiredMessage="El campo Cantón es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
 				<f:selectItems value="#{midatospersonaleController.miCantonArray}" itemValue="#{midatospersonaleController.varMiCanton}"/>
 				<f:ajax event="change" render="Parroquia"/>
 			</p:selectOneMenu>
 		
 			<p:outputLabel value="Lugar de nacimiento"/>
-			<p:selectOneMenu id="Parroquia" value="#{midatospersonaleController.varMiParroquia}" required="true" requiredMessage="El campo es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+			<p:selectOneMenu id="Parroquia" value="#{midatospersonaleController.midatospersonale.parroquia.idParroquia}" required="true" requiredMessage="El campo Lugar de Nacimieto es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
 				<f:selectItems value="#{midatospersonaleController.miParroquiaArray}" itemValue="#{midatospersonaleController.varMiParroquia}"/>
 			</p:selectOneMenu>
 			
 			<h:outputText value="Estado Civil" />
-			<p:selectOneMenu id="EstadoCivil" value="#{midatospersonaleController.varMiEstadoCivil}" required="true" requiredMessage="El campo es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+			<p:selectOneMenu id="EstadoCivil" value="#{midatospersonaleController.midatospersonale.estadoCivil.idEstadoCivil}" required="true" requiredMessage="El campo Estado Civil es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
 				<f:selectItems value="#{midatospersonaleController.miEstadoCivilArray}" itemValue="#{midatospersonaleController.varMiEstadoCivil}"/>
 			</p:selectOneMenu>
 			
 			<h:outputText value="Tipo de Sangre" />
-			<p:selectOneMenu id="TipoDeSangre" value="#{midatospersonaleController.varMiTipoDeSangre}" required="true" requiredMessage="El campo es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" itemValue=""/>
+			<p:selectOneMenu id="TipoDeSangre" value="#{midatospersonaleController.midatospersonale.tipoDeSangre.idTipoDeSangre}" required="true" requiredMessage="El campo Tipo de sangre es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
 				<f:selectItems value="#{midatospersonaleController.miTipoDeSangreArray}" itemValue="#{midatospersonaleController.varMiTipoDeSangre}"/>
-			</p:selectOneMenu>
-			
-			<h:outputText value="Nacionalidad" />
-			<p:inputText value="#{midatospersonaleController.midatospersonale.nacionalidad}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
-			
-			<h:outputText value="Direccion" />
-			<p:inputText value="#{midatospersonaleController.midatospersonale.direccion}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
-			
-			<h:outputText value="Telefono celular" />
-			<p:inputText value="#{midatospersonaleController.midatospersonale.telefonoCelular}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
-			
-			<h:outputText value="Telefono convencional" />
-			<p:inputText value="#{midatospersonaleController.midatospersonale.telefonoConvencional}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
-			
-			<h:outputText value="Correo Electronico" />
-			<p:inputText value="#{midatospersonaleController.midatospersonale.correoElectronico}"  
-			required="true" requiredMessage="El campo es requerido" ></p:inputText>
-			
-		</p:panelGrid>
-		
+			</p:selectOneMenu> 
+			-->
 		</h:form>
 	</body>
 </html>

@@ -120,9 +120,12 @@ public class MiDatosPersonaleController implements Serializable {
 			midatospersonale.getCedula();
 			midatospersonale.getFechaDeNacimiento();			
 			midatospersonale.getNacionalidad();
-			midatospersonale.getEstadoCivil().getNombre();
-			midatospersonale.getTipoDeSangre().getNombre();
-			midatospersonale.getParroquia().getNombre();
+			//midatospersonale.getEstadoCivil().getIdEstadoCivil();
+			//midatospersonale.getTipoDeSangre().getIdTipoDeSangre();
+			//midatospersonale.getParroquia().getIdParroquia();
+			midatospersonale.getEstadoCivilTexto();
+			midatospersonale.getTipoDeSangreTexto();
+			midatospersonale.getLugarDeNacimientoTexto();
 			midatospersonale.getDireccion();
 			midatospersonale.getTelefonoCelular();
 			midatospersonale.getTelefonoConvencional();
