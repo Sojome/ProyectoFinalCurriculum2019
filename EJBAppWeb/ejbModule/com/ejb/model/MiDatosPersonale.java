@@ -29,11 +29,22 @@ public class MiDatosPersonale implements Serializable {
 
 	private String direccion;
 
+	@Column(name="estado_civil_texto")
+	private String estadoCivilTexto;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_de_nacimiento")
 	private Date fechaDeNacimiento;
 
+	private byte[] imagen;
+
+	@Column(name="lugar_de_nacimiento_texto")
+	private String lugarDeNacimientoTexto;
+
 	private String nacionalidad;
+
+	@Column(name="nombre_imagen")
+	private String nombreImagen;
 
 	@Column(name="primer_apellido")
 	private String primerApellido;
@@ -54,6 +65,9 @@ public class MiDatosPersonale implements Serializable {
 
 	@Column(name="telefono_convencional")
 	private String telefonoConvencional;
+
+	@Column(name="tipo_de_sangre_texto")
+	private String tipoDeSangreTexto;
 
 	private String usuario;
 
@@ -139,6 +153,14 @@ public class MiDatosPersonale implements Serializable {
 		this.direccion = direccion;
 	}
 
+	public String getEstadoCivilTexto() {
+		return this.estadoCivilTexto;
+	}
+
+	public void setEstadoCivilTexto(String estadoCivilTexto) {
+		this.estadoCivilTexto = estadoCivilTexto;
+	}
+
 	public Date getFechaDeNacimiento() {
 		return this.fechaDeNacimiento;
 	}
@@ -147,12 +169,36 @@ public class MiDatosPersonale implements Serializable {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
 
+	public byte[] getImagen() {
+		return this.imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+
+	public String getLugarDeNacimientoTexto() {
+		return this.lugarDeNacimientoTexto;
+	}
+
+	public void setLugarDeNacimientoTexto(String lugarDeNacimientoTexto) {
+		this.lugarDeNacimientoTexto = lugarDeNacimientoTexto;
+	}
+
 	public String getNacionalidad() {
 		return this.nacionalidad;
 	}
 
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
+	}
+
+	public String getNombreImagen() {
+		return this.nombreImagen;
+	}
+
+	public void setNombreImagen(String nombreImagen) {
+		this.nombreImagen = nombreImagen;
 	}
 
 	public String getPrimerApellido() {
@@ -209,6 +255,14 @@ public class MiDatosPersonale implements Serializable {
 
 	public void setTelefonoConvencional(String telefonoConvencional) {
 		this.telefonoConvencional = telefonoConvencional;
+	}
+
+	public String getTipoDeSangreTexto() {
+		return this.tipoDeSangreTexto;
+	}
+
+	public void setTipoDeSangreTexto(String tipoDeSangreTexto) {
+		this.tipoDeSangreTexto = tipoDeSangreTexto;
 	}
 
 	public String getUsuario() {

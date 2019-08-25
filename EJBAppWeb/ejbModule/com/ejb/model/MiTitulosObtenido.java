@@ -26,6 +26,9 @@ public class MiTitulosObtenido implements Serializable {
 	@Column(name="fecha_de_grado")
 	private Date fechaDeGrado;
 
+	@Column(name="nivel_titulo_texto")
+	private String nivelTituloTexto;
+
 	private String titulo;
 
 	private String universidad;
@@ -65,6 +68,14 @@ public class MiTitulosObtenido implements Serializable {
 
 	public void setFechaDeGrado(Date fechaDeGrado) {
 		this.fechaDeGrado = fechaDeGrado;
+	}
+
+	public String getNivelTituloTexto() {
+		return this.nivelTituloTexto;
+	}
+
+	public void setNivelTituloTexto(String nivelTituloTexto) {
+		this.nivelTituloTexto = nivelTituloTexto;
 	}
 
 	public String getTitulo() {

@@ -23,6 +23,9 @@ public class MiPublicacione implements Serializable {
 
 	private String editorial;
 
+	@Column(name="tipo_de_publicacion_texto")
+	private String tipoDePublicacionTexto;
+
 	private String titulo;
 
 	//bi-directional many-to-one association to MiDatosPersonale
@@ -60,6 +63,14 @@ public class MiPublicacione implements Serializable {
 
 	public void setEditorial(String editorial) {
 		this.editorial = editorial;
+	}
+
+	public String getTipoDePublicacionTexto() {
+		return this.tipoDePublicacionTexto;
+	}
+
+	public void setTipoDePublicacionTexto(String tipoDePublicacionTexto) {
+		this.tipoDePublicacionTexto = tipoDePublicacionTexto;
 	}
 
 	public String getTitulo() {

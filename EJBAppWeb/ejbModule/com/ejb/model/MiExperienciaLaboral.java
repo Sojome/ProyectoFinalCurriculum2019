@@ -32,6 +32,9 @@ public class MiExperienciaLaboral implements Serializable {
 
 	private String institucion;
 
+	@Column(name="tipo_de_experiencia_texto")
+	private String tipoDeExperienciaTexto;
+
 	//bi-directional many-to-one association to MiDatosPersonale
 	@ManyToOne
 	@JoinColumn(name="id_datos_personales")
@@ -91,6 +94,14 @@ public class MiExperienciaLaboral implements Serializable {
 
 	public void setInstitucion(String institucion) {
 		this.institucion = institucion;
+	}
+
+	public String getTipoDeExperienciaTexto() {
+		return this.tipoDeExperienciaTexto;
+	}
+
+	public void setTipoDeExperienciaTexto(String tipoDeExperienciaTexto) {
+		this.tipoDeExperienciaTexto = tipoDeExperienciaTexto;
 	}
 
 	public MiDatosPersonale getDatosPersonale() {

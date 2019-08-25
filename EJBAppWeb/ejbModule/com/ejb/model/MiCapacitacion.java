@@ -33,6 +33,9 @@ public class MiCapacitacion implements Serializable {
 	@Column(name="numero_de_horas")
 	private Integer numeroDeHoras;
 
+	@Column(name="tipo_de_capacitacion_texto")
+	private String tipoDeCapacitacionTexto;
+
 	@Column(name="tipo_de_evento")
 	private String tipoDeEvento;
 
@@ -87,6 +90,14 @@ public class MiCapacitacion implements Serializable {
 
 	public void setNumeroDeHoras(Integer numeroDeHoras) {
 		this.numeroDeHoras = numeroDeHoras;
+	}
+
+	public String getTipoDeCapacitacionTexto() {
+		return this.tipoDeCapacitacionTexto;
+	}
+
+	public void setTipoDeCapacitacionTexto(String tipoDeCapacitacionTexto) {
+		this.tipoDeCapacitacionTexto = tipoDeCapacitacionTexto;
 	}
 
 	public String getTipoDeEvento() {
