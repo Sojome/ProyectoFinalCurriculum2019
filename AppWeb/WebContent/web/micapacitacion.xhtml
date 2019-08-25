@@ -14,38 +14,38 @@
 	<p:commandButton value="Nuevo" action="newmicapacitacion?faces-redirect=true" actionListener="#{micapacitacionController.limpiar}" ajax="true"></p:commandButton>
 	<h:form id="frmGeneral" enctype="multipart/form-data">
 	
-	<p:dataTable id="tablaCarpeta" var="a" value="#{micapacitacionController.listarMDP}">
+	<p:dataTable id="tablaCarpeta" var="a" value="#{micapacitacionController.listarMDP}" scrollable="true" scrollHeight="150">
 	    
-	    <p:column headerText="id">
-	        <h:outputText value="#{a.idCapacitacion}" />
+	    <p:column headerText="id" width="150">
+	        <center><h:outputText value="#{a.idCapacitacion}"/></center>
 	    </p:column>
 	 
-	    <p:column headerText="Tipo de capacitacion">
-	        <h:outputText value="#{a.tipoDeCapacitacionTexto}" />
-	        <!-- <h:outputText value="#{a.tipoDeCapacitacion.nombre}" /> -->
+	    <p:column headerText="Tipo de capacitacion" width="150">
+	        <center><h:outputText value="#{a.tipoDeCapacitacionTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.tipoDeCapacitacion.nombre}"/></center> -->
 	    </p:column>
 	    
-	    <p:column headerText="Tipo de evento">
-	        <h:outputText value="#{a.tipoDeEvento}" />
+	    <p:column headerText="Tipo de evento" width="150">
+	        <center><h:outputText value="#{a.tipoDeEvento}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Institucion">
-	        <h:outputText value="#{a.institucion}" />
+	    <p:column headerText="Institucion" width="150">
+	        <center><h:outputText value="#{a.institucion}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Numero de horas">
-	        <h:outputText value="#{a.numeroDeHoras}" />
+	    <p:column headerText="Numero de horas" width="150">
+	        <center><h:outputText value="#{a.numeroDeHoras}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Fecha inicial">
-	        <h:outputText value="#{a.fechaInicial}" />
+	    <p:column headerText="Fecha inicial" width="150">
+	        <center><h:outputText value="#{a.fechaInicial}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Fecha final">
-	        <h:outputText value="#{a.fechaFinal}" />
+	    <p:column headerText="Fecha final" width="150">
+	        <center><h:outputText value="#{a.fechaFinal}"/></center>
 	    </p:column>
 	    
-	     <p:column headerText="Menu">
+	     <p:column headerText="Menu" width="150">
 	        	<p:toolbarGroup align="right">
 	        		<p:menuButton value="opciones">
 	        			<p:menuitem value="modifica" action="newmicapacitacion.jsf" actionListener="#{micapacitacionController.buscar}" ajax="false">

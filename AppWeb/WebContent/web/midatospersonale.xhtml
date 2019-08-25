@@ -14,71 +14,71 @@
 	<p:commandButton value="Nuevo" action="newMDPersonale?faces-redirect=true" actionListener="#{midatospersonaleController.limpiar}" ajax="true"></p:commandButton>
 	<h:form id="frmGeneral" enctype="multipart/form-data">
 	
-	<p:dataTable id="tablaCarpeta" var="a" value="#{midatospersonaleController.listarMDP}">
-	    <p:column headerText="id">
-	        <h:outputText value="#{a.id}" />
+	<p:dataTable id="tablaCarpeta" var="a" value="#{midatospersonaleController.listarMDP}" scrollable="true" scrollWidth="100%" scrollHeight="150">
+	    <p:column headerText="id" width="150">
+	        <center><h:outputText value="#{a.id}"/></center>
 	    </p:column>
 	 
-	    <p:column headerText="Primer nombre">
-	        <h:outputText value="#{a.primerNombre}" />
+	    <p:column headerText="Primer nombre" width="150">
+	        <center><center><h:outputText value="#{a.primerNombre}"/></center></center>
 	    </p:column>
 	    
-	    <p:column headerText="Segundo nombre">
-	        <h:outputText value="#{a.segundoNombre}" />
+	    <p:column headerText="Segundo nombre" width="150">
+	        <center><h:outputText value="#{a.segundoNombre}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Primer apellido">
-	        <h:outputText value="#{a.primerApellido}" />
+	    <p:column headerText="Primer apellido" width="150">
+	        <center><h:outputText value="#{a.primerApellido}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Segundo apellido">
-	        <h:outputText value="#{a.segundoApellido}" />
+	    <p:column headerText="Segundo apellido" width="150">
+	        <center><h:outputText value="#{a.segundoApellido}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Fecha de nacimiento">
-	        <h:outputText value="#{a.fechaDeNacimiento}" />
+	    <p:column headerText="Fecha de nacimiento" width="150">
+	        <center><h:outputText value="#{a.fechaDeNacimiento}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Cedula de ciudadanía">
-	        <h:outputText value="#{a.cedula}" />
+	    <p:column headerText="Cedula de ciudadanía" width="150">
+	        <center><h:outputText value="#{a.cedula}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Nacionalidad">
-	        <h:outputText value="#{a.nacionalidad}" />
+	    <p:column headerText="Nacionalidad" width="150">
+	        <center><h:outputText value="#{a.nacionalidad}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Estado civil">
-	    	<h:outputText value="#{a.estadoCivilTexto}" />
-	        <!-- <h:outputText value="#{a.estadoCivil.nombre}" /> -->
+	    <p:column headerText="Estado civil" width="150">
+	    	<center><h:outputText value="#{a.estadoCivilTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.estadoCivil.nombre}"/></center> -->
 	    </p:column>
 	    
-	    <p:column headerText="Tipo de sangre">
-	        <h:outputText value="#{a.tipoDeSangreTexto}" />
-	        <!-- <h:outputText value="#{a.tipoDeSangre.nombre}" /> -->
+	    <p:column headerText="Tipo de sangre" width="150">
+	        <center><h:outputText value="#{a.tipoDeSangreTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.tipoDeSangre.nombre}"/></center> -->
 	    </p:column>
 	    
-	    <p:column headerText="Lugar de nacimiento">
-	        <h:outputText value="#{a.lugarDeNacimientoTexto}" />
-	        <!-- <h:outputText value="#{a.parroquia.nombre}" /> -->
+	    <p:column headerText="Lugar de nacimiento" width="150">
+	        <center><h:outputText value="#{a.lugarDeNacimientoTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.parroquia.nombre}"/></center> -->
 	    </p:column>
 	    
-	    <p:column headerText="Direccion">
-	        <h:outputText value="#{a.direccion}" />
+	    <p:column headerText="Direccion" width="150">
+	        <center><h:outputText value="#{a.direccion}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Telefono celular">
-	        <h:outputText value="#{a.telefonoCelular}" />
+	    <p:column headerText="Telefono celular" width="150">
+	        <center><h:outputText value="#{a.telefonoCelular}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Telefono convencional">
-	        <h:outputText value="#{a.telefonoConvencional}" />
+	    <p:column headerText="Telefono convencional" width="150">
+	        <center><h:outputText value="#{a.telefonoConvencional}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Correo Electronico">
-	        <h:outputText value="#{a.correoElectronico}" />
+	    <p:column headerText="Correo Electronico" width="150">
+	        <center><h:outputText value="#{a.correoElectronico}"/></center>
 	    </p:column>
 	    
-	     <p:column headerText="Menu">
+	     <p:column headerText="Menu"  width="150">
 	        	<p:toolbarGroup align="right">
 	        		<p:menuButton value="opciones">
 	        			<p:menuitem value="modifica" action="newMDPersonale.jsf" actionListener="#{midatospersonaleController.buscar}" ajax="false">
