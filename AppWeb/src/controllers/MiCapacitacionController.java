@@ -97,7 +97,7 @@ public class MiCapacitacionController implements Serializable {
 			micapacitacion.getInstitucion();
 			micapacitacion.getNumeroDeHoras();
 			micapacitacion.getTipoDeEvento();
-			micapacitacion.getDatosPersonale().getId();
+			//micapacitacion.getDatosPersonale().getId();
 			micapacitacion.getTipoDeCapacitacionTexto();
 			//micapacitacion.getTipoDeCapacitacion().getIdTipoDeCapacitacion();
 			setEstado(1);
