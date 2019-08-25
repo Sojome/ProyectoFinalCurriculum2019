@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Capacitacion</title>
+</h:head> 
+<body> 
+	
+	<p:commandButton value="Nuevo" action="newmicapacitacion?faces-redirect=true" actionListener="#{micapacitacionController.limpiar}" ajax="true"></p:commandButton>
+	<h:form id="frmGeneral" enctype="multipart/form-data">
+	
+	<p:dataTable id="tablaCarpeta" var="a" value="#{micapacitacionController.listarMDP}">
+	    <p:column headerText="id">
+	        <h:outputText value="#{a.idCapacitacion}" />
+	    </p:column>
+	 
+	    <p:column headerText="Tipo de capacitacion">
+	        <h:outputText value="#{a.tipoDeCapacitacionTexto}" />
+	        <!-- <h:outputText value="#{a.tipoDeCapacitacion.nombre}" /> -->
+	    </p:column>
+	    
+	    <p:column headerText="Tipo de evento">
+	        <h:outputText value="#{a.tipoDeEvento}" />
+	    </p:column>
+	    
+	    <p:column headerText="Institucion">
+	        <h:outputText value="#{a.institucion}" />
+	    </p:column>
+	    
+	    <p:column headerText="Numero de horas">
+	        <h:outputText value="#{a.numeroDeHoras}" />
+	    </p:column>
+	    
+	    <p:column headerText="Fecha inicial">
+	        <h:outputText value="#{a.fechaInicial}" />
+	    </p:column>
+	    
+	    <p:column headerText="Fecha final">
+	        <h:outputText value="#{a.fechaFinal}" />
+	    </p:column>
+	    
+	     <p:column headerText="Menu">
+	        	<p:toolbarGroup align="right">
+	        		<p:menuButton value="opciones">
+	        			<p:menuitem value="modifica" action="newmicapacitacion.jsf" actionListener="#{micapacitacionController.buscar}" ajax="false">
+	        			<f:attribute name="micapacitacionbuscar" value="#{a.idCapacitacion}"/>
+	        			</p:menuitem>
+	        			<p:menuitem value="eliminar"
+	        				onclick="if (!confirm('esta seguro de eliminar?')) return false"
+	        				actionListener="#{micapacitacionController.eliminar}"
+	        				update="tablaCarpeta"
+	        				ajax="true">
+	        			<f:attribute name="micapacitacioneliminar" value="#{a.idCapacitacion}"/>
+	        			</p:menuitem>
+	        		
+	        		</p:menuButton>
+	        	</p:toolbarGroup>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	
+	</h:form>
+
+
+</body> 
+</html>

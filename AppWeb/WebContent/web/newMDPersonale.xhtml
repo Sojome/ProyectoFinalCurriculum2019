@@ -80,9 +80,9 @@
 			<p:inputText value="#{midatospersonaleController.midatospersonale.segundoApellido}"  
 			required="true" requiredMessage="El campo Segundo Apellido es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
 			
-			<h:outputLabel value="Fecha de nacimiento" for="finicial"/>
-			<p:calendar id="finicial" value="#{midatospersonaleController.midatospersonale.fechaDeNacimiento}" pattern="dd/MM/yyyy"   locale="es" required="true" 
-			 onkeypress="return permite(event, 'none')" requiredMessage="Fecha de nacimiento" 
+			<h:outputLabel value="Fecha de nacimiento" for="fnacimiento"/>
+			<p:calendar id="fnacimiento" value="#{midatospersonaleController.midatospersonale.fechaDeNacimiento}" pattern="dd/MM/yyyy" 
+			locale="es" required="true" requiredMessage="Fecha de nacimiento" showOn="button"
 			 navigator="true" effect="fadeIn" effectDuration="100">
 			 </p:calendar>  
 			
@@ -96,11 +96,11 @@
 			
 			<h:outputText value="Estado Civil" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.estadoCivilTexto}"  
-			required="true" requiredMessage="El campo Estado Civil es requerido" ><p:keyFilter regEx="	/[a-z_]/i"/></p:inputText>
+			required="true" requiredMessage="El campo Estado Civil es requerido" ><p:keyFilter regEx="/[a-z_]/i"/></p:inputText>
 			
 			<h:outputText value="Tipo de Sangre" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.tipoDeSangreTexto}"  
-			required="true" requiredMessage="El campo Tipo de sangre es requerido" ><p:keyFilter regEx="	/[a-z_]/i"/></p:inputText>
+			required="true" requiredMessage="El campo Tipo de sangre es requerido" ></p:inputText>
 						
 			<h:outputText value="Nacionalidad" />
 			<p:inputText value="#{midatospersonaleController.midatospersonale.nacionalidad}"  
