@@ -23,7 +23,11 @@
         	 <p:menuitem outcome="mipublicacione.jsf">Publicacion</p:menuitem>
         </p:submenu>
     </p:tieredMenu>
+    <br/>
+    <li><a href="index.html">Logout</a></li>
+    <br/>
 	</h:form>
+	<!-- <img src="https://i1.rgstatic.net/ii/profile.image/441524723949571-1482279105878_Q512/Jaime_Sayago_Heredia.jpg" /> -->
 	<h1 align="center">PUCE</h1>
 	<h2 align="center">Dirección Administrativa y del Talento Humano</h2>
 	<h2 align="center">CURRÍCULO DEL  DOCENTE</h2>
@@ -99,31 +103,27 @@
 	<h3 align="left">2. TITULOS OBTENIDOS:</h3>
 	
 	<h:form id="frmGeneral2" enctype="multipart/form-data">
-		<p:dataTable id="tablaCarpeta" var="a" value="#{micapacitacionController.listarMDP}" scrollable="true" scrollHeight="150">
+		<p:dataTable id="tablaCarpeta" var="a" value="#{mititulosobtenidoController.listarMDP}" scrollable="true" scrollHeight="150">
 	    
-	    <p:column headerText="Tipo de capacitacion" width="150">
-	        <center><h:outputText value="#{a.tipoDeCapacitacionTexto}"/></center>
-	        <!-- <center><h:outputText value="#{a.tipoDeCapacitacion.nombre}"/></center> -->
+	    <p:column headerText="Nivel titulo" width="150">
+	        <center><h:outputText value="#{a.nivelTituloTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.nivelTitulo.idNivelTitulo}"/></center> -->
 	    </p:column>
 	    
-	    <p:column headerText="Tipo de evento" width="150">
-	        <center><h:outputText value="#{a.tipoDeEvento}"/></center>
+	    <p:column headerText="Titulo" width="150">
+	        <center><h:outputText value="#{a.titulo}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Institucion" width="150">
-	        <center><h:outputText value="#{a.institucion}"/></center>
+	    <p:column headerText="Universidad" width="150">
+	        <center><h:outputText value="#{a.universidad}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Numero de horas" width="150">
-	        <center><h:outputText value="#{a.numeroDeHoras}"/></center>
+	    <p:column headerText="Ciudad" width="150">
+	        <center><h:outputText value="#{a.ciudad}"/></center>
 	    </p:column>
 	    
-	    <p:column headerText="Fecha inicial" width="150">
-	        <center><h:outputText value="#{a.fechaInicial}"/></center>
-	    </p:column>
-	    
-	    <p:column headerText="Fecha final" width="150">
-	        <center><h:outputText value="#{a.fechaFinal}"/></center>
+	    <p:column headerText="Fecha de grado" width="150">
+	        <center><h:outputText value="#{a.fechaDeGrado}"/></center>
 	    </p:column>
 	    
 	</p:dataTable>

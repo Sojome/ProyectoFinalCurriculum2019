@@ -15,7 +15,5 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/EJBAppWeb"/>
 	<classpathentry kind="con" path="org.eclipse.datatools.connectivity.jdt.DRIVERLIBRARY/PostgreSQL JDBC Driver"/>
-	<classpathentry kind="lib" path="C:/Instaladores/commons-fileupload-1.4-bin/commons-fileupload-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Instaladores/commons-io-2.6/commons-io-2.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
