@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Publicación</title>
+</h:head> 
+<body> 
+	
+	<p:commandButton value="Nuevo" action="newmipublicacione?faces-redirect=true" actionListener="#{mipublicacioneController.limpiar}" ajax="true"></p:commandButton>
+	<h:form id="frmGeneral" enctype="multipart/form-data">
+	
+	<p:dataTable id="tablaCarpeta" var="a" value="#{mipublicacioneController.listarMDP}" scrollable="true" scrollHeight="150">
+	    
+	    <p:column headerText="id" width="150">
+	        <center><h:outputText value="#{a.idPublicaciones}"/></center>
+	    </p:column>
+	 
+	    <p:column headerText="Tipo de publicacion" width="150">
+	        <center><h:outputText value="#{a.tipoDePublicacionTexto}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Editorial" width="150">
+	        <center><h:outputText value="#{a.editorial}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Institucion" width="150">
+	        <center><h:outputText value="#{a.institucion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Año" width="150">
+	        <center><h:outputText value="#{a.anio}"/></center>
+	    </p:column>
+	    
+	     <p:column headerText="Menu" width="150">
+	        	<p:toolbarGroup align="right">
+	        		<p:menuButton value="opciones">
+	        			<p:menuitem value="modifica" action="newmipublicacione.jsf" actionListener="#{mipublicacioneController.buscar}" ajax="false">
+	        			<f:attribute name="mipublicacionebuscar" value="#{a.idPublicaciones}"/>
+	        			</p:menuitem>
+	        			<p:menuitem value="eliminar"
+	        				onclick="if (!confirm('esta seguro de eliminar?')) return false"
+	        				actionListener="#{mipublicacioneController.eliminar}"
+	        				update="tablaCarpeta"
+	        				ajax="true">
+	        			<f:attribute name="mipublicacioneeliminar" value="#{a.idPublicaciones}"/>
+	        			</p:menuitem>
+	        		
+	        		</p:menuButton>
+	        	</p:toolbarGroup>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	
+	</h:form>
+
+
+</body> 
+</html>

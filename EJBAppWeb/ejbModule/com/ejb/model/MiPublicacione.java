@@ -23,6 +23,8 @@ public class MiPublicacione implements Serializable {
 
 	private String editorial;
 
+	private String institucion;
+
 	@Column(name="tipo_de_publicacion_texto")
 	private String tipoDePublicacionTexto;
 
@@ -63,6 +65,14 @@ public class MiPublicacione implements Serializable {
 
 	public void setEditorial(String editorial) {
 		this.editorial = editorial;
+	}
+
+	public String getInstitucion() {
+		return this.institucion;
+	}
+
+	public void setInstitucion(String institucion) {
+		this.institucion = institucion;
 	}
 
 	public String getTipoDePublicacionTexto() {
