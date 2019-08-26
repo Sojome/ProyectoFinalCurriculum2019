@@ -8,7 +8,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title> Nueva Capacitacion</title>
+<title> Nueva ExperienciaLaboral</title>
 </h:head> 
 	<body>
 	
@@ -45,10 +45,10 @@
 		<p:toolbar>
 			<f:facet name="right">
 				<p:commandButton value="Grabar"
-					actionListener="#{micapacitacionController.grabar}" update="messagesdo"
+					actionListener="#{miexperiencialaboralController.grabar}" update="messagesdo"
 					ajax="false">
 				</p:commandButton>
-				<p:button value="Regresar" outcome="micapacitacion.jsf"/>
+				<p:button value="Regresar" outcome="miexperiencialaboral.jsf"/>
 			</f:facet>
 		</p:toolbar>
 		<br />
@@ -60,41 +60,41 @@
 		<p:panelGrid columns="2">
 		    <f:facet name="header">
 		    	<p:row>
-		    		<h2><b>Capacitacion</b></h2>
+		    		<h2><b>ExperienciaLaboral</b></h2>
 		    	</p:row>
 		    </f:facet>
 		    
-		    <h:outputText value="Tipo de evento" />
-		    <p:inputText value="#{micapacitacionController.micapacitacion.tipoDeEvento}"  
-			required="true" requiredMessage="El campo Tipo de evento es requerido" ></p:inputText>
+		    <h:outputText value="Tipo de experiencia laboral" />
+		    <p:inputText value="#{miexperiencialaboralController.miexperiencialaboral.tipoDeExperienciaTexto}"  
+			required="true" requiredMessage="El campo Tipo de experiencia laboral es requerido" ></p:inputText>
 			
 			<h:outputText value="Institucion" />
-			<p:inputText value="#{micapacitacionController.micapacitacion.institucion}"  
+			<p:inputText value="#{miexperiencialaboralController.miexperiencialaboral.institucion}"  
 			required="true" requiredMessage="El campo Institucion es requerido" ></p:inputText>
 			
-			<h:outputText value="Numero de horas" />
-			<p:inputText value="#{micapacitacionController.micapacitacion.numeroDeHoras}"  
-			required="true" requiredMessage="El campo Numero de horas es requerido" ><p:keyFilter regEx="/[\d\-]/"/></p:inputText>
+			<h:outputText value="Catedra" />
+			<p:inputText value="#{miexperiencialaboralController.miexperiencialaboral.catedraa}"  
+			required="true" requiredMessage="El campo Catedra es requerido" ></p:inputText>
 			
-			<h:outputText value="Tipo de Capacitacion" />
-			<p:inputText value="#{micapacitacionController.micapacitacion.tipoDeCapacitacionTexto}"  
-			required="true" requiredMessage="El campo Titulo de Capacitacion es requerido" ></p:inputText>
+			<h:outputText value="Funcion" />
+			<p:inputText value="#{miexperiencialaboralController.miexperiencialaboral.funcion}"  
+			required="true" requiredMessage="El campo Funcion es requerido" ></p:inputText>
 			
-			<h:outputLabel value="Fecha Inicial" for="finicial"/>
-			<p:calendar id="finicial" value="#{micapacitacionController.micapacitacion.fechaInicial}" pattern="dd/MM/yyyy"   locale="es" required="true" onkeypress="return permite(event, 'none')" requiredMessage="Fecha Inicial Requerida" navigator="true" effect="fadeIn" effectDuration="100" showOn="button">
-			        <p:ajax event="dateSelect" update="ffinal" />
+			<h:outputLabel value="Desde" for="fdesde"/>
+			<p:calendar id="fdesde" value="#{miexperiencialaboralController.miexperiencialaboral.desde}" pattern="dd/MM/yyyy"   locale="es" required="true" onkeypress="return permite(event, 'none')" requiredMessage="Desde Requerida" navigator="true" effect="fadeIn" effectDuration="100" showOn="button">
+			        <p:ajax event="dateSelect" update="fhasta" />
 			 </p:calendar>    
-			<h:outputLabel value="Fecha Final" for="ffinal"/>
-			<p:calendar id="ffinal" value="#{micapacitacionController.micapacitacion.fechaFinal}" mindate="#{micapacitacionController.micapacitacion.fechaInicial}" pattern="dd/MM/yyyy"  locale="es" required="true" onkeypress="return permite(event, 'none')" requiredMessage="Fecha Final Requerida" navigator="true" effect="fadeIn" effectDuration="100" showOn="button">
-			         <f:attribute name="finicial" value="#{nacidoVivoRenaviController.FInicial}"/>
+			<h:outputLabel value="Hasta" for="fhasta"/>
+			<p:calendar id="fhasta" value="#{miexperiencialaboralController.miexperiencialaboral.hasta}" mindate="#{miexperiencialaboralController.miexperiencialaboral.desde}" pattern="dd/MM/yyyy"  locale="es" required="true" onkeypress="return permite(event, 'none')" requiredMessage="Hasta Requerida" navigator="true" effect="fadeIn" effectDuration="100" showOn="button">
+			         <f:attribute name="fdesde" value="#{nacidoVivoRenaviController.FInicial}"/>
 			         <f:validator validatorId="primeDateRangeValidator" />
 			</p:calendar>
 			
 		</p:panelGrid>
-		<!-- <h:outputText value="Tipo de Capacitacion" />
-			<p:selectOneMenu id="TipoDeCapacitacion" value="#{micapacitacionController.micapacitacion.tipoDeCapacitacion.idTipoDeCapacitacion}" required="true" requiredMessage="El campo Tipo de capacitacion es requerido">
+		<!-- <h:outputText value="Tipo de Experiencia" />
+			<p:selectOneMenu id="TipoDeExperienciaLaboral" value="#{miexperiencialaboralController.miexperiencialaboral.tipoDeExperiencia.idTipoDeExperiencia}" required="true" requiredMessage="El campo Tipo de experiencialaboral es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
-				<f:selectItems value="#{micapacitacionController.miTipoDeCapacitacionArray}" itemValue="#{micapacitacionController.varMiTipoDeCapacitacion}"/>
+				<f:selectItems value="#{miexperiencialaboralController.miTipoDeExperienciaArray}" itemValue="#{miexperiencialaboralController.varMiTipoDeExperiencia}"/>
 			</p:selectOneMenu> -->
 		
 		</h:form>
