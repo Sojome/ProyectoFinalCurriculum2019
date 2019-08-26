@@ -12,6 +12,7 @@
 <body> 
 	
 	<p:commandButton value="Nuevo" action="newmiexperiencialaboral?faces-redirect=true" actionListener="#{miexperiencialaboralController.limpiar}" ajax="true"></p:commandButton>
+	<p:button value="Volver" outcome="principal.jsf"/>
 	<h:form id="frmGeneral" enctype="multipart/form-data">
 	
 	<p:dataTable id="tablaCarpeta" var="a" value="#{miexperiencialaboralController.listarMDP}" scrollable="true" scrollHeight="150">

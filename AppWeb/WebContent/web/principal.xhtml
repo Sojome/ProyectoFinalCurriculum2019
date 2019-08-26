@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Principal</title>
+</h:head> 
+<body>
+	<h:form>
+	<p:commandButton id="dynaButton" value="Show" type="button"/>
+	<p:tieredMenu overlay="true" trigger="dynaButton" my="left top" at="left bottom" style="width:200px">
+        <p:submenu label="Vistas">
+        	 <p:menuitem outcome="midatospersonale.jsf">Datos personales</p:menuitem>
+        	 <p:menuitem outcome="micapacitacion.jsf">Capacitacion</p:menuitem>
+        	 <p:menuitem outcome="miexperiencialaboral.jsf">Experiencia Laborales</p:menuitem>
+        	 <p:menuitem outcome="mireferenciaslaborale.jsf">Referencias Laborales</p:menuitem>
+        	 <p:menuitem outcome="mititulosobtenido.jsf">Titulos Obtenidos</p:menuitem>
+        	 <p:menuitem outcome="miinvestigacionesrealizada.jsf">Investigacion Realizada</p:menuitem>
+        	 <p:menuitem outcome="mipublicacione.jsf">Publicacion</p:menuitem>
+        </p:submenu>
+    </p:tieredMenu>
+	</h:form>
+	<h1 align="center">PUCE</h1>
+	<h2 align="center">Dirección Administrativa y del Talento Humano</h2>
+	<h2 align="center">CURRÍCULO DEL  DOCENTE</h2>
+	<h3 align="left">1. DATOS INFORMATIVOS:</h3>
+	
+	<h:form id="frmGeneral" enctype="multipart/form-data">
+	
+	<p:dataTable id="tablaCarpeta" var="a" value="#{midatospersonaleController.listarMDP}" scrollable="true" scrollWidth="100%" scrollHeight="150">
+	    
+	    <p:column headerText="Primer nombre" width="150">
+	        <center><center><h:outputText value="#{a.primerNombre}"/></center></center>
+	    </p:column>
+	    
+	    <p:column headerText="Segundo nombre" width="150">
+	        <center><h:outputText value="#{a.segundoNombre}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Primer apellido" width="150">
+	        <center><h:outputText value="#{a.primerApellido}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Segundo apellido" width="150">
+	        <center><h:outputText value="#{a.segundoApellido}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Fecha de nacimiento" width="150">
+	        <center><h:outputText value="#{a.fechaDeNacimiento}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Cedula de ciudadanía" width="150">
+	        <center><h:outputText value="#{a.cedula}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Nacionalidad" width="150">
+	        <center><h:outputText value="#{a.nacionalidad}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Estado civil" width="150">
+	    	<center><h:outputText value="#{a.estadoCivilTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.estadoCivil.nombre}"/></center> -->
+	    </p:column>
+	    
+	    <p:column headerText="Tipo de sangre" width="150">
+	        <center><h:outputText value="#{a.tipoDeSangreTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.tipoDeSangre.nombre}"/></center> -->
+	    </p:column>
+	    
+	    <p:column headerText="Lugar de nacimiento" width="150">
+	        <center><h:outputText value="#{a.lugarDeNacimientoTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.parroquia.nombre}"/></center> -->
+	    </p:column>
+	    
+	    <p:column headerText="Direccion" width="150">
+	        <center><h:outputText value="#{a.direccion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Telefono celular" width="150">
+	        <center><h:outputText value="#{a.telefonoCelular}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Telefono convencional" width="150">
+	        <center><h:outputText value="#{a.telefonoConvencional}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Correo Electronico" width="150">
+	        <center><h:outputText value="#{a.correoElectronico}"/></center>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	</h:form>
+	
+	<h3 align="left">2. TITULOS OBTENIDOS:</h3>
+	
+	<h:form id="frmGeneral2" enctype="multipart/form-data">
+		<p:dataTable id="tablaCarpeta" var="a" value="#{micapacitacionController.listarMDP}" scrollable="true" scrollHeight="150">
+	    
+	    <p:column headerText="Tipo de capacitacion" width="150">
+	        <center><h:outputText value="#{a.tipoDeCapacitacionTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.tipoDeCapacitacion.nombre}"/></center> -->
+	    </p:column>
+	    
+	    <p:column headerText="Tipo de evento" width="150">
+	        <center><h:outputText value="#{a.tipoDeEvento}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Institucion" width="150">
+	        <center><h:outputText value="#{a.institucion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Numero de horas" width="150">
+	        <center><h:outputText value="#{a.numeroDeHoras}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Fecha inicial" width="150">
+	        <center><h:outputText value="#{a.fechaInicial}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Fecha final" width="150">
+	        <center><h:outputText value="#{a.fechaFinal}"/></center>
+	    </p:column>
+	    
+	</p:dataTable>
+	</h:form>
+	
+	<h3 align="left">3. EXPERIENCIA LABORAL</h3>
+	
+	<h:form id="frmGenerale3" enctype="multipart/form-data">
+		<p:dataTable id="tablaCarpeta" var="a" value="#{miexperiencialaboralController.listarMDP}" scrollable="true" scrollHeight="150">
+	    
+	    <p:column headerText="Tipo de experiencia laboral" width="150">
+	        <center><h:outputText value="#{a.tipoDeExperienciaTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.tipoDeExperiencia.nombre}"/></center> -->
+	    </p:column>
+	    
+	    <p:column headerText="Institucion" width="150">
+	        <center><h:outputText value="#{a.institucion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Catedra" width="150">
+	        <center><h:outputText value="#{a.catedraa}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Funcion" width="150">
+	        <center><h:outputText value="#{a.funcion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Desde" width="150">
+	        <center><h:outputText value="#{a.desde}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Hasta" width="150">
+	        <center><h:outputText value="#{a.hasta}"/></center>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	 <h3 align="left">3.1 REFERENCIAS LABORALES</h3>
+	
+	<p:dataTable id="tablaCarpeta1" var="a" value="#{mireferenciaslaboraleController.listarMDP}" scrollable="true" scrollHeight="150">
+	    
+	    <p:column headerText="Institucion" width="150">
+	        <center><h:outputText value="#{a.institucion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Jefe Inmediato" width="150">
+	        <center><h:outputText value="#{a.jefeInmediato}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Telefono" width="150">
+	        <center><h:outputText value="#{a.telefono}"/></center>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	</h:form>
+	
+	<h3 align="left">4. CAPACITACIÓN:</h3>
+	
+	<h:form id="frmGeneral4" enctype="multipart/form-data">
+	
+	<p:dataTable id="tablaCarpeta" var="a" value="#{micapacitacionController.listarMDP}" scrollable="true" scrollHeight="150">
+	    
+	    <p:column headerText="Tipo de capacitacion" width="150">
+	        <center><h:outputText value="#{a.tipoDeCapacitacionTexto}"/></center>
+	        <!-- <center><h:outputText value="#{a.tipoDeCapacitacion.nombre}"/></center> -->
+	    </p:column>
+	    
+	    <p:column headerText="Tipo de evento" width="150">
+	        <center><h:outputText value="#{a.tipoDeEvento}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Institucion" width="150">
+	        <center><h:outputText value="#{a.institucion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Numero de horas" width="150">
+	        <center><h:outputText value="#{a.numeroDeHoras}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Fecha inicial" width="150">
+	        <center><h:outputText value="#{a.fechaInicial}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Fecha final" width="150">
+	        <center><h:outputText value="#{a.fechaFinal}"/></center>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	</h:form>
+	
+	<h3 align="left">5. INVESTIGACIONES REALIZADAS:</h3>
+	<h:form id="frmGeneral5" enctype="multipart/form-data">
+	
+	<p:dataTable id="tablaCarpeta" var="a" value="#{miinvestigacionesrealizadaController.listarMDP}" scrollable="true" scrollHeight="150">
+	    
+	    <p:column headerText="Titulo" width="150">
+	        <center><h:outputText value="#{a.titulo}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Institucion" width="150">
+	        <center><h:outputText value="#{a.institucion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Año" width="150">
+	        <center><h:outputText value="#{a.anio}"/></center>
+	    </p:column>
+	    
+	</p:dataTable>
+	</h:form>
+	
+	<h3 align="left">6. PUBLICACIONES:</h3>
+	<h:form id="frmGeneral6" enctype="multipart/form-data">
+	
+	<p:dataTable id="tablaCarpeta" var="a" value="#{mipublicacioneController.listarMDP}" scrollable="true" scrollHeight="150">
+	    
+	    <p:column headerText="Tipo de publicacion" width="150">
+	        <center><h:outputText value="#{a.tipoDePublicacionTexto}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Editorial" width="150">
+	        <center><h:outputText value="#{a.editorial}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Institucion" width="150">
+	        <center><h:outputText value="#{a.institucion}"/></center>
+	    </p:column>
+	    
+	    <p:column headerText="Año" width="150">
+	        <center><h:outputText value="#{a.anio}"/></center>
+	    </p:column>
+	    
+	</p:dataTable>
+	
+	
+	</h:form>
+</body>
+</html>

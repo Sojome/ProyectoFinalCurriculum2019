@@ -12,6 +12,7 @@
 <body> 
 	
 	<p:commandButton value="Nuevo" action="newmititulosobtenido?faces-redirect=true" actionListener="#{mititulosobtenidoController.limpiar}" ajax="true"></p:commandButton>
+	<p:button value="Volver" outcome="principal.jsf"/>
 	<h:form id="frmGeneral" enctype="multipart/form-data">
 	
 	<p:dataTable id="tablaCarpeta" var="a" value="#{mititulosobtenidoController.listarMDP}" scrollable="true" scrollHeight="150">
