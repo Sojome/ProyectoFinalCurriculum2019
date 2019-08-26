@@ -65,8 +65,11 @@
 		    </f:facet>
 		    
 		    <h:outputText value="Nivel titulo" />
-		    <p:inputText value="#{mititulosobtenidoController.mititulosobtenido.nivelTituloTexto}"  
-			required="true" requiredMessage="El campo Nivel titulo es requerido" ></p:inputText>
+			<p:selectOneMenu id="NivelTitulo" value="#{mititulosobtenidoController.mititulosobtenido.nivelTituloTexto}"
+			required="true" requiredMessage="El campo Nivel titulo es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
+				<f:selectItems value="#{mititulosobtenidoController.miNivelTituloArray}" itemValue="#{mititulosobtenidoController.nombreMiNivelTitulo}"/>
+			</p:selectOneMenu>
 			
 			<h:outputText value="Titulo" />
 			<p:inputText value="#{mititulosobtenidoController.mititulosobtenido.titulo}"  
@@ -87,11 +90,6 @@
 			 </p:calendar>  
 			
 		</p:panelGrid>
-		<!-- <h:outputText value="Nivel titulo" />
-			<p:selectOneMenu id="NivelTitulo" value="#{mititulosobtenidoController.mititulosobtenido.nivelTitulo.idNivelTitulo}" required="true" requiredMessage="El campo nivel de titulo es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
-				<f:selectItems value="#{mititulosobtenidoController.miNivelTituloArray}" itemValue="#{mititulosobtenidoController.varMiNivelTitulo}"/>
-			</p:selectOneMenu> -->
 		</h:form>
 	</body>
 </html>

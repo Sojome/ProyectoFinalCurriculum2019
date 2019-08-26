@@ -43,7 +43,7 @@ public class MiTitulosObtenidoController implements Serializable {
 	private int estado;
 	private String mensaje;
 	
-	public int varMiNivelTitulo=0;
+	public String nombreMiNivelTitulo="";
 		
 	DataModel<MiTitulosObtenido> listarMDP;
 	
@@ -139,13 +139,12 @@ public class MiTitulosObtenidoController implements Serializable {
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-
-	public int getVarMiNivelTitulo() {
-		return varMiNivelTitulo;
+	public String getNombreMiNivelTitulo() {
+		return nombreMiNivelTitulo;
 	}
 
-	public void setVarMiNivelTitulo(int varMiNivelTitulo) {
-		this.varMiNivelTitulo = varMiNivelTitulo;
+	public void setNombreMiNivelTitulo(String nombreMiNivelTitulo) {
+		this.nombreMiNivelTitulo = nombreMiNivelTitulo;
 	}
 
 	public DataModel<MiTitulosObtenido> getListarMDP() {
@@ -161,7 +160,7 @@ public class MiTitulosObtenidoController implements Serializable {
 		MiNivelTituloArray = new ArrayList<SelectItem>();
 		for(MiNivelTitulo obj: ejbMiNivelTituloSession.listar())
 		{
-			MiNivelTituloArray.add(new SelectItem(obj.getIdNivelTitulo().toString(), obj.getNombre()));
+			MiNivelTituloArray.add(new SelectItem(obj.getNombre()));
 		}
 		return MiNivelTituloArray;
 	}

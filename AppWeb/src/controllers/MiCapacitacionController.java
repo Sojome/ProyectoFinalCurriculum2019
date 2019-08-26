@@ -44,6 +44,7 @@ public class MiCapacitacionController implements Serializable {
 	private String mensaje;
 	
 	public int varMiTipoDeCapacitacion=0;
+	public String nombreMiTipoDeCapacitacion="";
 		
 	DataModel<MiCapacitacion> listarMDP;
 	
@@ -141,6 +142,14 @@ public class MiCapacitacionController implements Serializable {
 		this.mensaje = mensaje;
 	}
 
+	public String getNombreMiTipoDeCapacitacion() {
+		return nombreMiTipoDeCapacitacion;
+	}
+
+	public void setNombreMiTipoDeCapacitacion(String nombreMiTipoDeCapacitacion) {
+		this.nombreMiTipoDeCapacitacion = nombreMiTipoDeCapacitacion;
+	}
+
 	public int getVarMiTipoDeCapacitacion() {
 		return varMiTipoDeCapacitacion;
 	}
@@ -162,7 +171,7 @@ public class MiCapacitacionController implements Serializable {
 		MiTipoDeCapacitacionArray = new ArrayList<SelectItem>();
 		for(MiTipoDeCapacitacion obj: ejbMiTipoDeCapacitacionSession.listar())
 		{
-			MiTipoDeCapacitacionArray.add(new SelectItem(obj.getIdTipoDeCapacitacion().toString(), obj.getNombre()));
+			MiTipoDeCapacitacionArray.add(new SelectItem(obj.getNombre()));
 		}
 		return MiTipoDeCapacitacionArray;
 	}

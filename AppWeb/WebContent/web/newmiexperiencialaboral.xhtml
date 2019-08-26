@@ -65,8 +65,11 @@
 		    </f:facet>
 		    
 		    <h:outputText value="Tipo de experiencia laboral" />
-		    <p:inputText value="#{miexperiencialaboralController.miexperiencialaboral.tipoDeExperienciaTexto}"  
-			required="true" requiredMessage="El campo Tipo de experiencia laboral es requerido" ></p:inputText>
+			<p:selectOneMenu id="TipoDeExperienciaLaboral" value="#{miexperiencialaboralController.miexperiencialaboral.tipoDeExperienciaTexto}"
+			required="true" requiredMessage="El campo Tipo de experiencia laboral es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
+				<f:selectItems value="#{miexperiencialaboralController.miTipoDeExperienciaArray}" itemValue="#{miexperiencialaboralController.nombreMiTipoDeExperiencia}"/>
+			</p:selectOneMenu>
 			
 			<h:outputText value="Institucion" />
 			<p:inputText value="#{miexperiencialaboralController.miexperiencialaboral.institucion}"  

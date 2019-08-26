@@ -43,7 +43,7 @@ public class MiExperienciaLaboralController implements Serializable {
 	private int estado;
 	private String mensaje;
 	
-	public int varMiTipoDeExperiencia=0;
+	public String nombreMiTipoDeExperiencia="";
 		
 	DataModel<MiExperienciaLaboral> listarMDP;
 	
@@ -141,12 +141,12 @@ public class MiExperienciaLaboralController implements Serializable {
 		this.mensaje = mensaje;
 	}
 
-	public int getVarMiTipoDeExperiencia() {
-		return varMiTipoDeExperiencia;
+	public String getNombreMiTipoDeExperiencia() {
+		return nombreMiTipoDeExperiencia;
 	}
 
-	public void setVarMiTipoDeExperiencia(int varMiTipoDeExperiencia) {
-		this.varMiTipoDeExperiencia = varMiTipoDeExperiencia;
+	public void setNombreMiTipoDeExperiencia(String nombreMiTipoDeExperiencia) {
+		this.nombreMiTipoDeExperiencia = nombreMiTipoDeExperiencia;
 	}
 
 	public DataModel<MiExperienciaLaboral> getListarMDP() {
@@ -162,7 +162,7 @@ public class MiExperienciaLaboralController implements Serializable {
 		MiTipoDeExperienciaArray = new ArrayList<SelectItem>();
 		for(MiTipoDeExperiencia obj: ejbMiTipoDeExperienciaSession.listar())
 		{
-			MiTipoDeExperienciaArray.add(new SelectItem(obj.getIdTipoDeExperiencia().toString(), obj.getNombre()));
+			MiTipoDeExperienciaArray.add(new SelectItem(obj.getNombre()));
 		}
 		return MiTipoDeExperienciaArray;
 	}

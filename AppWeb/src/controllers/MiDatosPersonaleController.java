@@ -57,9 +57,10 @@ public class MiDatosPersonaleController implements Serializable {
 	public int varMiPais=0;
 	public int varMiCanton=0;
 	public int varMiProvincia=0;
-	public int varMiParroquia=0;
-	public int varMiEstadoCivil=0;
-	public int varMiTipoDeSangre=0;
+	
+	public String nombreMiParroquia="";
+	public String nombreMiEstadoCivil="";
+	public String nombreMiTipoDeSangre="";
 	
 	DataModel<MiDatosPersonale> listarMDP;
 	
@@ -215,26 +216,29 @@ public class MiDatosPersonaleController implements Serializable {
 	public void setVarMiProvincia(int varMiProvincia) {
 		this.varMiProvincia = varMiProvincia;
 	}
-	public int getVarMiParroquia() {
-		return varMiParroquia;
-	}
-	public void setVarMiParroquia(int varMiParroquia) {
-		this.varMiParroquia = varMiParroquia;
-	}
-	public int getVarMiEstadoCivil() {
-		return varMiEstadoCivil;
+
+	public String getNombreMiParroquia() {
+		return nombreMiParroquia;
 	}
 
-	public void setVarMiEstadoCivil(int varMiEstadoCivil) {
-		this.varMiEstadoCivil = varMiEstadoCivil;
+	public void setNombreMiParroquia(String nombreMiParroquia) {
+		this.nombreMiParroquia = nombreMiParroquia;
 	}
 
-	public int getVarMiTipoDeSangre() {
-		return varMiTipoDeSangre;
+	public String getNombreMiEstadoCivil() {
+		return nombreMiEstadoCivil;
 	}
 
-	public void setVarMiTipoDeSangre(int varMiTipoDeSangre) {
-		this.varMiTipoDeSangre = varMiTipoDeSangre;
+	public void setNombreMiEstadoCivil(String nombreMiEstadoCivil) {
+		this.nombreMiEstadoCivil = nombreMiEstadoCivil;
+	}
+
+	public String getNombreMiTipoDeSangre() {
+		return nombreMiTipoDeSangre;
+	}
+
+	public void setNombreMiTipoDeSangre(String nombreMiTipoDeSangre) {
+		this.nombreMiTipoDeSangre = nombreMiTipoDeSangre;
 	}
 
 	public DataModel<MiDatosPersonale> getListarMDP() {
@@ -273,7 +277,7 @@ public class MiDatosPersonaleController implements Serializable {
 		MiParroquiaArray = new ArrayList<SelectItem>();
 		for(MiParroquia obj: ejbMiParroquiaSession.listar(getVarMiCanton()))
 		{
-			MiParroquiaArray.add(new SelectItem(obj.getIdParroquia().toString(), obj.getNombre()));
+			MiParroquiaArray.add(new SelectItem(obj.getNombre()));
 		}
 		return MiParroquiaArray;
 	}
@@ -297,7 +301,7 @@ public class MiDatosPersonaleController implements Serializable {
 		MiEstadoCivilArray = new ArrayList<SelectItem>();
 		for(MiEstadoCivil obj: ejbMiEstadoCivilSession.listar())
 		{
-			MiEstadoCivilArray.add(new SelectItem(obj.getIdEstadoCivil().toString(), obj.getNombre()));
+			MiEstadoCivilArray.add(new SelectItem(obj.getNombre()));
 		}
 		return MiEstadoCivilArray;
 	}
@@ -310,7 +314,7 @@ public class MiDatosPersonaleController implements Serializable {
 		MiTipoDeSangreArray = new ArrayList<SelectItem>();
 		for(MiTipoDeSangre obj: ejbMiTipoDeSangreSession.listar())
 		{
-			MiTipoDeSangreArray.add(new SelectItem(obj.getIdTipoDeSangre().toString(), obj.getNombre()));
+			MiTipoDeSangreArray.add(new SelectItem(obj.getNombre()));
 		}
 		return MiTipoDeSangreArray;
 	}
