@@ -64,6 +64,12 @@
 		    	</p:row>
 		    </f:facet>
 		    
+		    <h:outputText value="Tipo de Capacitacion" />
+			<p:selectOneMenu id="TipoDeCapacitacion" value="#{micapacitacionController.micapacitacion.tipoDeCapacitacionTexto}" required="true" requiredMessage="El campo Tipo de capacitacion es requerido">
+				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
+				<f:selectItems value="#{micapacitacionController.miTipoDeCapacitacionArray}" itemValue="#{micapacitacionController.nombreMiTipoDeCapacitacion}"/>
+			</p:selectOneMenu>
+		    
 		    <h:outputText value="Tipo de evento" />
 		    <p:inputText value="#{micapacitacionController.micapacitacion.tipoDeEvento}"  
 			required="true" requiredMessage="El campo Tipo de evento es requerido" ></p:inputText>
@@ -75,12 +81,6 @@
 			<h:outputText value="Numero de horas" />
 			<p:inputText value="#{micapacitacionController.micapacitacion.numeroDeHoras}"  
 			required="true" requiredMessage="El campo Numero de horas es requerido" ><p:keyFilter regEx="/[\d\-]/"/></p:inputText>
-			
-			<h:outputText value="Tipo de Capacitacion" />
-			<p:selectOneMenu id="TipoDeCapacitacion" value="#{micapacitacionController.micapacitacion.tipoDeCapacitacionTexto}" required="true" requiredMessage="El campo Tipo de capacitacion es requerido">
-				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
-				<f:selectItems value="#{micapacitacionController.miTipoDeCapacitacionArray}" itemValue="#{micapacitacionController.nombreMiTipoDeCapacitacion}"/>
-			</p:selectOneMenu> 
 			
 			<h:outputLabel value="Fecha Inicial" for="finicial"/>
 			<p:calendar id="finicial" value="#{micapacitacionController.micapacitacion.fechaInicial}" pattern="dd/MM/yyyy"   locale="es" required="true" onkeypress="return permite(event, 'none')" requiredMessage="Fecha Inicial Requerida" navigator="true" effect="fadeIn" effectDuration="100" showOn="button">

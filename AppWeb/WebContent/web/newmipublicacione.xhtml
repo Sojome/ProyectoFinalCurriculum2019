@@ -65,7 +65,8 @@
 		    </f:facet>
 		    
 		    <h:outputText value="Tipo de Publicacion" />
-			<p:selectOneMenu id="TipoDePublicacione" value="#{mipublicacioneController.mipublicacione.tipoDePublicacionTexto}" required="true" requiredMessage="El campo Tipo de publicacione es requerido">
+			<p:selectOneMenu id="TipoDePublicacione" value="#{mipublicacioneController.mipublicacione.tipoDePublicacionTexto}" required="true" 
+			requiredMessage="El campo Tipo de publicacione es requerido">
 				<f:selectItem itemLabel="Seleccione un valor" noSelectionOption="true"/>
 				<f:selectItems value="#{mipublicacioneController.miTipoDePublicacioneArray}" itemValue="#{mipublicacioneController.nombreMiTipoDePublicacione}"/>
 			</p:selectOneMenu> 
